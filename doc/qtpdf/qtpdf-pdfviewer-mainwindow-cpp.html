@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- pdfviewer.qdoc -->
+  <title>PDF Viewer Example | Qt PDF 5.15.2</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+    <div class="main">
+    <div class="main-rounded">
+        <div class="navigationbar">
+        <ul>
+<li><a href="../qtdoc/index.html">Qt 5.15</a></li>
+<li><a href="qtpdf-index.html">Qt PDF</a></li>
+<li>PDF Viewer Example</li>
+<li id="buildversion"><a href="qtpdf-index.html">Qt 5.15.2 Reference Documentation</a></li>
+    </ul>
+    </div>
+</div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<h1 class="title">PDF Viewer Example</h1>
+<span class="subtitle"></span>
+<pre class="cpp">
+ <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2016 The Qt Company Ltd.
+ ** Contact: http://www.qt.io/licensing/
+ **
+ ** This file is part of the QtPDF module of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL3$
+ ** Commercial License Usage
+ ** Licensees holding valid commercial Qt licenses may use this file in
+ ** accordance with the commercial license agreement provided with the
+ ** Software or, alternatively, in accordance with the terms contained in
+ ** a written agreement between you and The Qt Company. For licensing terms
+ ** and conditions see http://www.qt.io/terms-conditions. For further
+ ** information use the contact form at http://www.qt.io/contact-us.
+ **
+ ** GNU Lesser General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU Lesser
+ ** General Public License version 3 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.LGPLv3 included in the
+ ** packaging of this file. Please review the following information to
+ ** ensure the GNU Lesser General Public License version 3 requirements
+ ** will be met: https://www.gnu.org/licenses/lgpl.html.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU
+ ** General Public License version 2.0 or later as published by the Free
+ ** Software Foundation and appearing in the file LICENSE.GPL included in
+ ** the packaging of this file. Please review the following information to
+ ** ensure the GNU General Public License version 2.0 requirements will be
+ ** met: http://www.gnu.org/licenses/gpl-2.0.html.
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &quot;mainwindow.h&quot;</span>
+ <span class="preprocessor">#include &quot;ui_mainwindow.h&quot;</span>
+
+ <span class="preprocessor">#include &quot;pageselector.h&quot;</span>
+ <span class="preprocessor">#include &quot;zoomselector.h&quot;</span>
+
+ <span class="preprocessor">#include &lt;QFileDialog&gt;</span>
+ <span class="preprocessor">#include &lt;QMessageBox&gt;</span>
+ <span class="preprocessor">#include &lt;QPdfBookmarkModel&gt;</span>
+ <span class="preprocessor">#include &lt;QPdfDocument&gt;</span>
+ <span class="preprocessor">#include &lt;QPdfPageNavigation&gt;</span>
+ <span class="preprocessor">#include &lt;QtMath&gt;</span>
+
+ <span class="keyword">const</span> <span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> zoomMultiplier <span class="operator">=</span> <a href="../qtcore/qtmath.html#qSqrt">qSqrt</a>(<span class="number">2.0</span>);
+
+ Q_LOGGING_CATEGORY(lcExample<span class="operator">,</span> <span class="string">&quot;qt.examples.pdfviewer&quot;</span>)
+
+ MainWindow<span class="operator">::</span>MainWindow(<span class="type"><a href="../qtwidgets/qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="../qtwidgets/qmainwindow.html">QMainWindow</a></span>(parent)
+     <span class="operator">,</span> ui(<span class="keyword">new</span> Ui<span class="operator">::</span>MainWindow)
+     <span class="operator">,</span> m_zoomSelector(<span class="keyword">new</span> ZoomSelector(<span class="keyword">this</span>))
+     <span class="operator">,</span> m_pageSelector(<span class="keyword">new</span> PageSelector(<span class="keyword">this</span>))
+     <span class="operator">,</span> m_document(<span class="keyword">new</span> <span class="type"><a href="qpdfdocument.html">QPdfDocument</a></span>(<span class="keyword">this</span>))
+ {
+     ui<span class="operator">-</span><span class="operator">&gt;</span>setupUi(<span class="keyword">this</span>);
+
+     m_zoomSelector<span class="operator">-</span><span class="operator">&gt;</span>setMaximumWidth(<span class="number">150</span>);
+     ui<span class="operator">-</span><span class="operator">&gt;</span>mainToolBar<span class="operator">-</span><span class="operator">&gt;</span>insertWidget(ui<span class="operator">-</span><span class="operator">&gt;</span>actionZoom_In<span class="operator">,</span> m_zoomSelector);
+
+     m_pageSelector<span class="operator">-</span><span class="operator">&gt;</span>setMaximumWidth(<span class="number">150</span>);
+     ui<span class="operator">-</span><span class="operator">&gt;</span>mainToolBar<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_pageSelector);
+
+     m_pageSelector<span class="operator">-</span><span class="operator">&gt;</span>setPageNavigation(ui<span class="operator">-</span><span class="operator">&gt;</span>pdfView<span class="operator">-</span><span class="operator">&gt;</span>pageNavigation());
+
+     connect(m_zoomSelector<span class="operator">,</span> <span class="operator">&amp;</span>ZoomSelector<span class="operator">::</span>zoomModeChanged<span class="operator">,</span> ui<span class="operator">-</span><span class="operator">&gt;</span>pdfView<span class="operator">,</span> <span class="operator">&amp;</span><span class="type">QPdfView</span><span class="operator">::</span>setZoomMode);
+     connect(m_zoomSelector<span class="operator">,</span> <span class="operator">&amp;</span>ZoomSelector<span class="operator">::</span>zoomFactorChanged<span class="operator">,</span> ui<span class="operator">-</span><span class="operator">&gt;</span>pdfView<span class="operator">,</span> <span class="operator">&amp;</span><span class="type">QPdfView</span><span class="operator">::</span>setZoomFactor);
+     m_zoomSelector<span class="operator">-</span><span class="operator">&gt;</span>reset();
+
+     <span class="type">QPdfBookmarkModel</span> <span class="operator">*</span>bookmarkModel <span class="operator">=</span> <span class="keyword">new</span> <span class="type">QPdfBookmarkModel</span>(<span class="keyword">this</span>);
+     bookmarkModel<span class="operator">-</span><span class="operator">&gt;</span>setDocument(m_document);
+
+     ui<span class="operator">-</span><span class="operator">&gt;</span>bookmarkView<span class="operator">-</span><span class="operator">&gt;</span>setModel(bookmarkModel);
+     connect(ui<span class="operator">-</span><span class="operator">&gt;</span>bookmarkView<span class="operator">,</span> SIGNAL(activated(<span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(bookmarkSelected(<span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span>)));
+
+     ui<span class="operator">-</span><span class="operator">&gt;</span>tabWidget<span class="operator">-</span><span class="operator">&gt;</span>setTabEnabled(<span class="number">1</span><span class="operator">,</span> <span class="keyword">false</span>); <span class="comment">// disable 'Pages' tab for now</span>
+
+     ui<span class="operator">-</span><span class="operator">&gt;</span>pdfView<span class="operator">-</span><span class="operator">&gt;</span>setDocument(m_document);
+
+     connect(ui<span class="operator">-</span><span class="operator">&gt;</span>pdfView<span class="operator">,</span> <span class="operator">&amp;</span><span class="type">QPdfView</span><span class="operator">::</span>zoomFactorChanged<span class="operator">,</span>
+             m_zoomSelector<span class="operator">,</span> <span class="operator">&amp;</span>ZoomSelector<span class="operator">::</span>setZoomFactor);
+ }
+
+ MainWindow<span class="operator">::</span><span class="operator">~</span>MainWindow()
+ {
+     <span class="keyword">delete</span> ui;
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>open(<span class="keyword">const</span> <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> <span class="operator">&amp;</span>docLocation)
+ {
+     <span class="keyword">if</span> (docLocation<span class="operator">.</span>isLocalFile()) {
+         m_document<span class="operator">-</span><span class="operator">&gt;</span>load(docLocation<span class="operator">.</span>toLocalFile());
+         <span class="keyword">const</span> <span class="keyword">auto</span> documentTitle <span class="operator">=</span> m_document<span class="operator">-</span><span class="operator">&gt;</span>metaData(<span class="type"><a href="qpdfdocument.html">QPdfDocument</a></span><span class="operator">::</span>Title)<span class="operator">.</span>toString();
+         setWindowTitle(<span class="operator">!</span>documentTitle<span class="operator">.</span>isEmpty() <span class="operator">?</span> documentTitle : <span class="type"><a href="../qtcore/qstring.html#QStringLiteral">QStringLiteral</a></span>(<span class="string">&quot;PDF Viewer&quot;</span>));
+     } <span class="keyword">else</span> {
+         qCDebug(lcExample) <span class="operator">&lt;</span><span class="operator">&lt;</span> docLocation <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;is not a valid local file&quot;</span>;
+         <span class="type"><a href="../qtwidgets/qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>critical(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Failed to open&quot;</span>)<span class="operator">,</span> tr(<span class="string">&quot;%1 is not a valid local file&quot;</span>)<span class="operator">.</span>arg(docLocation<span class="operator">.</span>toString()));
+     }
+     qCDebug(lcExample) <span class="operator">&lt;</span><span class="operator">&lt;</span> docLocation;
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>bookmarkSelected(<span class="keyword">const</span> <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index)
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>index<span class="operator">.</span>isValid())
+         <span class="keyword">return</span>;
+
+     <span class="keyword">const</span> <span class="type">int</span> page <span class="operator">=</span> index<span class="operator">.</span>data(<span class="type">QPdfBookmarkModel</span><span class="operator">::</span>PageNumberRole)<span class="operator">.</span>toInt();
+     ui<span class="operator">-</span><span class="operator">&gt;</span>pdfView<span class="operator">-</span><span class="operator">&gt;</span>pageNavigation()<span class="operator">-</span><span class="operator">&gt;</span>setCurrentPage(page);
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>on_actionOpen_triggered()
+ {
+     <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> toOpen <span class="operator">=</span> <span class="type"><a href="../qtwidgets/qfiledialog.html">QFileDialog</a></span><span class="operator">::</span>getOpenFileUrl(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Choose a PDF&quot;</span>)<span class="operator">,</span> <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span>()<span class="operator">,</span> <span class="string">&quot;Portable Documents (*.pdf)&quot;</span>);
+     <span class="keyword">if</span> (toOpen<span class="operator">.</span>isValid())
+         open(toOpen);
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>on_actionQuit_triggered()
+ {
+     <span class="type"><a href="../qtwidgets/qapplication.html">QApplication</a></span><span class="operator">::</span>quit();
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>on_actionAbout_triggered()
+ {
+     <span class="type"><a href="../qtwidgets/qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>about(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;About PdfViewer&quot;</span>)<span class="operator">,</span>
+         tr(<span class="string">&quot;An example using QPdfDocument&quot;</span>));
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>on_actionAbout_Qt_triggered()
+ {
+     <span class="type"><a href="../qtwidgets/qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>aboutQt(<span class="keyword">this</span>);
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>on_actionZoom_In_triggered()
+ {
+     ui<span class="operator">-</span><span class="operator">&gt;</span>pdfView<span class="operator">-</span><span class="operator">&gt;</span>setZoomFactor(ui<span class="operator">-</span><span class="operator">&gt;</span>pdfView<span class="operator">-</span><span class="operator">&gt;</span>zoomFactor() <span class="operator">*</span> zoomMultiplier);
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>on_actionZoom_Out_triggered()
+ {
+     ui<span class="operator">-</span><span class="operator">&gt;</span>pdfView<span class="operator">-</span><span class="operator">&gt;</span>setZoomFactor(ui<span class="operator">-</span><span class="operator">&gt;</span>pdfView<span class="operator">-</span><span class="operator">&gt;</span>zoomFactor() <span class="operator">/</span> zoomMultiplier);
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>on_actionPrevious_Page_triggered()
+ {
+     ui<span class="operator">-</span><span class="operator">&gt;</span>pdfView<span class="operator">-</span><span class="operator">&gt;</span>pageNavigation()<span class="operator">-</span><span class="operator">&gt;</span>goToPreviousPage();
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>on_actionNext_Page_triggered()
+ {
+     ui<span class="operator">-</span><span class="operator">&gt;</span>pdfView<span class="operator">-</span><span class="operator">&gt;</span>pageNavigation()<span class="operator">-</span><span class="operator">&gt;</span>goToNextPage();
+ }
+
+ <span class="type">void</span> MainWindow<span class="operator">::</span>on_actionContinuous_triggered()
+ {
+     ui<span class="operator">-</span><span class="operator">&gt;</span>pdfView<span class="operator">-</span><span class="operator">&gt;</span>setPageMode(ui<span class="operator">-</span><span class="operator">&gt;</span>actionContinuous<span class="operator">-</span><span class="operator">&gt;</span>isChecked() <span class="operator">?</span> <span class="type">QPdfView</span><span class="operator">::</span>MultiPage : <span class="type">QPdfView</span><span class="operator">::</span>SinglePage);
+ }
+</pre>

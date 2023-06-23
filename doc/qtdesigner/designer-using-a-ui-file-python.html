@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- designer-manual.qdoc -->
+  <title>Using a Designer UI File in Your Qt for Python Application | Qt Designer Manual</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+    <div class="main">
+    <div class="main-rounded">
+        <div class="navigationbar">
+        <ul>
+<li>Qt 5.15</li>
+<li><a href="qtdesigner-manual.html">Qt Designer Manual</a></li>
+<li>Using a Designer UI File in Your Qt for Python Application</li>
+<li id="buildversion"><a href="qtdesigner-manual.html">Qt 5.15.2&#x2e;0 Reference Documentation</a></li>
+    </ul>
+    </div>
+</div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+  <link rel="prev" href="designer-using-a-ui-file.html" />
+  <link rel="next" href="designer-using-custom-widgets.html" />
+<p class="naviNextPrevious headerNavi">
+<a class="prevPage" href="designer-using-a-ui-file.html">Using a Designer UI File in Your C++ Application</a>
+<span class="naviSeparator">  &#9702;  </span>
+<a class="nextPage" href="designer-using-custom-widgets.html">Using Custom Widgets with Qt Designer</a>
+</p><p/>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#converting-the-form-to-python-code">Converting the Form to Python Code</a></li>
+<li class="level2"><a href="#the-uitools-approach">The UiTools Approach</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Using a Designer UI File in Your Qt for Python Application</h1>
+<span class="subtitle"></span>
+<!-- $$$designer-using-a-ui-file-python.html-description -->
+<div class="descr"> <a name="details"></a>
+<a name="converting-the-form-to-python-code"></a>
+<h2 id="converting-the-form-to-python-code">Converting the Form to Python Code</h2>
+<p>To demonstrate, we use the Qt Widgets animation easing example.</p>
+<p>The application consists of one source file, <code>easing.py</code>, a UI file <code>form.ui</code>, a resource file <code>easing.qrc</code> and the project file, <code>easing.pyproject</code> file in the YAML format:</p>
+<pre class="cpp">
+ {
+     <span class="string">&quot;files&quot;</span>: <span class="operator">[</span><span class="string">&quot;easing.qrc&quot;</span><span class="operator">,</span> <span class="string">&quot;ui_form.py&quot;</span><span class="operator">,</span> <span class="string">&quot;easing.py&quot;</span><span class="operator">,</span> <span class="string">&quot;easing_rc.py&quot;</span><span class="operator">,</span>
+               <span class="string">&quot;form.ui&quot;</span><span class="operator">]</span>
+ }
+</pre>
+<p>The UI file is converted to Python code building the form using the User Interface Compiler (uic):</p>
+<pre class="cpp">
+ uic <span class="operator">-</span>g python form<span class="operator">.</span>ui <span class="operator">&gt;</span> ui_form<span class="operator">.</span>py
+</pre>
+<p>Since the top level widget is named <code>Form</code>, this results in a Python class named <code>Ui_Form</code> being generated. It provides a function <code>setupUi()</code>, taking the widget as parameter, which is called to create the UI elements:</p>
+<pre class="cpp">
+ from ui_form import Ui_Form
+ <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+ <span class="keyword">class</span> Window(<span class="type"><a href="../qtwidgets/qtwidgets-module.html">QtWidgets</a></span><span class="operator">.</span><span class="type"><a href="../qtwidgets/qwidget.html">QWidget</a></span>):
+     def __init__(self<span class="operator">,</span> parent<span class="operator">=</span>None):
+         super(Window<span class="operator">,</span> self)<span class="operator">.</span>__init__(parent)
+
+         self<span class="operator">.</span>m_ui <span class="operator">=</span> Ui_Form()
+         self<span class="operator">.</span>m_ui<span class="operator">.</span>setupUi(self)
+</pre>
+<p>Later on, the widgets can be accessed via the <code>Ui_Form</code> class:</p>
+<pre class="cpp">
+ self<span class="operator">.</span>m_ui<span class="operator">.</span>graphicsView<span class="operator">.</span>setScene(self<span class="operator">.</span>m_scene)
+</pre>
+<p>Besides <code>setupUi()</code>, <code>Ui_Form</code> provides another method <code>retranslateUi()</code>, which can be called in reaction to a <a href="../qtcore/qevent.html">QEvent</a> of type <a href="../qtcore/qevent.html">QEvent</a>.LanguageChange, which indicates a change in the application language.</p>
+<a name="the-uitools-approach"></a>
+<h3 id="the-uitools-approach">The UiTools Approach</h3>
+<p>The <a href="../qtuitools/quiloader.html">QUiLoader</a> class provides a form loader object to construct the user interface at runtime. This user interface can be retrieved from any <a href="../qtcore/qiodevice.html">QIODevice</a>, e.g&#x2e;, a <a href="../qtcore/qfile.html">QFile</a> object. The <a href="../qtuitools/quiloader.html#load">QUiLoader::load</a>() function constructs the form widget using the user interface description contained in the file.</p>
+<p>It is demonstrated by the uiloader example:</p>
+<pre class="cpp">
+ from PySide2<span class="operator">.</span><span class="type"><a href="../qtuitools/qtuitools-module.html">QtUiTools</a></span> import <span class="type"><a href="../qtuitools/quiloader.html">QUiLoader</a></span>
+
+ <span class="keyword">if</span> __name__ <span class="operator">=</span><span class="operator">=</span> <span class="char">'__main__'</span>:
+     <span class="preprocessor"># Some code to obtain the form file name, ui_file_name</span>
+     app <span class="operator">=</span> <span class="type"><a href="../qtwidgets/qapplication.html">QApplication</a></span>(sys<span class="operator">.</span>argv)
+     ui_file <span class="operator">=</span> <span class="type"><a href="../qtcore/qfile.html">QFile</a></span>(ui_file_name)
+     <span class="keyword">if</span> <span class="keyword">not</span> ui_file<span class="operator">.</span>open(<span class="type"><a href="../qtcore/qiodevice.html">QIODevice</a></span><span class="operator">.</span>ReadOnly):
+         print(<span class="string">&quot;Cannot open {}: {}&quot;</span><span class="operator">.</span>format(ui_file_name<span class="operator">,</span> ui_file<span class="operator">.</span>errorString()))
+         sys<span class="operator">.</span>exit(<span class="operator">-</span><span class="number">1</span>)
+     loader <span class="operator">=</span> <span class="type"><a href="../qtuitools/quiloader.html">QUiLoader</a></span>()
+     widget <span class="operator">=</span> loader<span class="operator">.</span>load(ui_file<span class="operator">,</span> None)
+     ui_file<span class="operator">.</span>close()
+     <span class="keyword">if</span> <span class="keyword">not</span> widget:
+         print(loader<span class="operator">.</span>errorString())
+         sys<span class="operator">.</span>exit(<span class="operator">-</span><span class="number">1</span>)
+     widget<span class="operator">.</span>show()
+     sys<span class="operator">.</span>exit(app<span class="operator">.</span>exec_())
+</pre>
+</div>
+<!-- @@@designer-using-a-ui-file-python.html -->
+<p class="naviNextPrevious footerNavi">
+<a class="prevPage" href="designer-using-a-ui-file.html">Using a Designer UI File in Your C++ Application</a>
+<span class="naviSeparator">  &#9702;  </span>
+<a class="nextPage" href="designer-using-custom-widgets.html">Using Custom Widgets with Qt Designer</a>
+</p>
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2020 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

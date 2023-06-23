@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- qtimeline.cpp -->
+  <title>Obsolete Members for QTimeLine | Qt Core 5.15.2</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+    <div class="main">
+    <div class="main-rounded">
+        <div class="navigationbar">
+        <ul>
+<li>Qt 5.15</li>
+<li><a href="qtcore-index.html">Qt Core</a></li>
+<li><a href="qtcore-module.html">C++ Classes</a></li>
+<li>QTimeLine</li>
+<li id="buildversion"><a href="qtcore-index.html">Qt 5.15.2 Reference Documentation</a></li>
+    </ul>
+    </div>
+</div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Obsolete Members for QTimeLine</h1>
+<p><b>The following members of class <a href="qtimeline.html">QTimeLine</a> are obsolete.</b> They are provided to keep old source code working. We strongly advise against using them in new code.</p>
+<h2>Public Types</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> <code>(obsolete) </code>enum </td><td class="memItemRight bottomAlign"><b><a href="qtimeline-obsolete.html#CurveShape-enum">CurveShape</a></b> { EaseInCurve, EaseOutCurve, EaseInOutCurve, LinearCurve, SineCurve, CosineCurve }</td></tr>
+</table></div>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><code>(obsolete) </code><b><a href="qtimeline-obsolete.html#curveShape-prop">curveShape</a></b> : CurveShape</li>
+</ul>
+<h2>Public Functions</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> <code>(obsolete) </code>QTimeLine::CurveShape </td><td class="memItemRight bottomAlign"><b><a href="qtimeline-obsolete.html#curveShape-prop">curveShape</a></b>() const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> <code>(obsolete) </code>void </td><td class="memItemRight bottomAlign"><b><a href="qtimeline-obsolete.html#curveShape-prop">setCurveShape</a></b>(QTimeLine::CurveShape <i>shape</i>)</td></tr>
+</table></div>
+<h2>Member Type Documentation</h2>
+<!-- $$$CurveShape$$$EaseInCurve$$$EaseOutCurve$$$EaseInOutCurve$$$LinearCurve$$$SineCurve$$$CosineCurve -->
+<h3 class="fn" id="CurveShape-enum"><a name="CurveShape-enum"></a>enum QTimeLine::<span class="name">CurveShape</span></h3>
+<p>This enum is obsolete. It is provided to keep old source code working. We strongly advise against using it in new code.</p>
+<p>use <a href="qeasingcurve.html">QEasingCurve</a> instead</p>
+<p>This enum describes the shape of <a href="qtimeline.html">QTimeLine</a>'s value curve. The default shape is EaseInOutCurve. The curve defines the relation between the value and the timeline.</p>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><code>QTimeLine::EaseInCurve</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">Obsolete equivalent of <a href="qeasingcurve.html#Type-enum">QEasingCurve::InCurve</a></td></tr>
+<tr><td class="topAlign"><code>QTimeLine::EaseOutCurve</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">Obsolete equivalent of <a href="qeasingcurve.html#Type-enum">QEasingCurve::OutCurve</a></td></tr>
+<tr><td class="topAlign"><code>QTimeLine::EaseInOutCurve</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">Obsolete equivalent of <a href="qeasingcurve.html#Type-enum">QEasingCurve::InOutSine</a></td></tr>
+<tr><td class="topAlign"><code>QTimeLine::LinearCurve</code></td><td class="topAlign tblval"><code>3</code></td><td class="topAlign">Obsolete equivalent of <a href="qeasingcurve.html#Type-enum">QEasingCurve::Linear</a></td></tr>
+<tr><td class="topAlign"><code>QTimeLine::SineCurve</code></td><td class="topAlign tblval"><code>4</code></td><td class="topAlign">Obsolete equivalent of <a href="qeasingcurve.html#Type-enum">QEasingCurve::SineCurve</a></td></tr>
+<tr><td class="topAlign"><code>QTimeLine::CosineCurve</code></td><td class="topAlign tblval"><code>5</code></td><td class="topAlign">Obsolete equivalent of <a href="qeasingcurve.html#Type-enum">QEasingCurve::CosineCurve</a></td></tr>
+</table></div>
+<p><b>See also </b><a href="qtimeline-obsolete.html#curveShape-prop">curveShape</a>, <a href="qtimeline-obsolete.html#curveShape-prop">setCurveShape</a>(), <a href="qtimeline.html#easingCurve-prop">easingCurve</a>, and <a href="qeasingcurve.html">QEasingCurve</a>.</p>
+<!-- @@@CurveShape -->
+<h2>Property Documentation</h2>
+<!-- $$$curveShape-prop$$$curveShape$$$setCurveShapeQTimeLine::CurveShape -->
+<h3 class="fn" id="curveShape-prop"><a name="curveShape-prop"></a><span class="name">curveShape</span> : <span class="type"><a href="qtimeline-obsolete.html#CurveShape-enum">CurveShape</a></span></h3>
+<p>This property is obsolete. It is provided to keep old source code working. We strongly advise against using it in new code.</p>
+<p>This property holds the shape of the timeline curve.</p>
+<p>The curve shape describes the relation between the time and value for the base implementation of <a href="qtimeline.html#valueForTime">valueForTime</a>().</p>
+<p>This property is an indirect way to update the <a href="qtimeline.html#easingCurve-prop">easingCurve</a> property; if you set both, the one set more recently overrides the other. (If <a href="qtimeline.html#valueForTime">valueForTime</a>() is reimplemented it will override both.)</p>
+<p>By default, this property is set to <a href="qtimeline-obsolete.html#CurveShape-enum">EaseInOutCurve</a>.</p>
+<p>Access <code>easingCurve</code> instead.</p>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QTimeLine::CurveShape </td><td class="memItemRight bottomAlign"><span class="name"><b>curveShape</b></span>() const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setCurveShape</b></span>(QTimeLine::CurveShape <i>shape</i>)</td></tr>
+</table></div>
+<p><b>See also </b><a href="qtimeline.html#valueForTime">valueForTime</a>() and <a href="qtimeline.html#easingCurve-prop">easingCurve</a>.</p>
+<!-- @@@curveShape -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2020 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

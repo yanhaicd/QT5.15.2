@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<instructionals module="QtAndroidExtras">
+    <examples>
+        <example name="Android Custom Activity" docUrl="qthelp://org.qt-project.qtandroidextras.5152/qtandroidextras/qtandroidextras-customactivity-example.html" projectPath="androidextras/customactivity/customactivity.pro" imageUrl="qthelp://org.qt-project.qtandroidextras.5152/qtandroidextras/images/customactivity.png">
+            <description><![CDATA[Demonstrates working with custom Android activities.]]></description>
+            <tags>activity,android,custom,extras</tags>
+            <fileToOpen>androidextras/customactivity/main.cpp</fileToOpen>
+            <fileToOpen mainFile="true">androidextras/customactivity/main.qml</fileToOpen>
+        </example>
+        <example name="Android Service with BroadcastReceiver" docUrl="qthelp://org.qt-project.qtandroidextras.5152/qtandroidextras/qtandroidextras-services-servicebroadcast-example.html" projectPath="androidextras/services/servicebroadcast/servicebroadcast.pro" imageUrl="qthelp://org.qt-project.qtandroidextras.5152/qtandroidextras/images/androidservices.png">
+            <description><![CDATA[Demonstrates how to run an Android service in a separate process using a separate .so lib file, and how to communicate with Qt using a BroadcastReceiver.]]></description>
+            <tags>android,broadcastreceiver,extras,service,with</tags>
+            <fileToOpen mainFile="true">androidextras/services/servicebroadcast/main.cpp</fileToOpen>
+        </example>
+        <example name="Android Service with BroadcastReceiver - Same Lib File" docUrl="qthelp://org.qt-project.qtandroidextras.5152/qtandroidextras/qtandroidextras-services-servicebroadcastsamelib-example.html" projectPath="androidextras/services/servicebroadcastsamelib/servicebroadcastsamelib.pro" imageUrl="qthelp://org.qt-project.qtandroidextras.5152/qtandroidextras/images/androidservices.png">
+            <description><![CDATA[Demonstrates how to run an Android service in a separate process, and how to communicate with Qt using a BroadcastReceiver.]]></description>
+            <tags>android,broadcastreceiver,extras,file,lib,same,service,with</tags>
+            <fileToOpen mainFile="true">androidextras/services/servicebroadcastsamelib/main.cpp</fileToOpen>
+        </example>
+        <example name="Android Service with QAndroidBinder" docUrl="qthelp://org.qt-project.qtandroidextras.5152/qtandroidextras/qtandroidextras-services-servicebinder-example.html" projectPath="androidextras/services/servicebinder/servicebinder.pro" imageUrl="qthelp://org.qt-project.qtandroidextras.5152/qtandroidextras/images/androidservices.png">
+            <description><![CDATA[Demonstrates how to run an Android service in a separate process, and how to communicate between the service process and the main process using QAndroidBinder.]]></description>
+            <tags>android,extras,qandroidbinder,service,with</tags>
+            <fileToOpen mainFile="true">androidextras/services/servicebinder/main.cpp</fileToOpen>
+        </example>
+        <example name="Android Service with Qt Remote Objects" docUrl="qthelp://org.qt-project.qtandroidextras.5152/qtandroidextras/qtandroidextras-services-serviceremoteobjects-example.html" projectPath="androidextras/services/serviceremoteobjects/serviceremoteobjects.pro" imageUrl="qthelp://org.qt-project.qtandroidextras.5152/qtandroidextras/images/androidservices.png">
+            <description><![CDATA[Demonstrates how to run an Android service in a separate process, and how to communicate between the service process and the main process using Qt Remote Objects.]]></description>
+            <tags>android,extras,objects,remote,service,with</tags>
+            <fileToOpen mainFile="true">androidextras/services/serviceremoteobjects/main.cpp</fileToOpen>
+        </example>
+        <example name="Android Service with Qt Remote Objects - Same Lib File" docUrl="qthelp://org.qt-project.qtandroidextras.5152/qtandroidextras/qtandroidextras-services-serviceremoteobjectssamelib-example.html" projectPath="androidextras/services/serviceremoteobjectssamelib/serviceremoteobjectssamelib.pro" imageUrl="qthelp://org.qt-project.qtandroidextras.5152/qtandroidextras/images/androidservices.png">
+            <description><![CDATA[Demonstrates how to run an Android service in a separate process using the same lib file, and how to communicate between the service process and the main process using Qt Remote Objects.]]></description>
+            <tags>android,extras,file,lib,objects,remote,same,service,with</tags>
+            <fileToOpen mainFile="true">androidextras/services/serviceremoteobjectssamelib/main.cpp</fileToOpen>
+        </example>
+        <example name="Native Android Service in Same Process" docUrl="qthelp://org.qt-project.qtandroidextras.5152/qtandroidextras/qtandroidextras-services-servicesameprocess-example.html" projectPath="androidextras/services/servicesameprocess/servicesameprocess.pro" imageUrl="qthelp://org.qt-project.qtandroidextras.5152/qtandroidextras/images/androidservices.png">
+            <description><![CDATA[Demonstrates how to run an Android service in the main process, and how to communicate between QML/C++ and a Java service.]]></description>
+            <tags>android,extras,in,native,process,same,service</tags>
+            <fileToOpen mainFile="true">androidextras/services/servicesameprocess/main.cpp</fileToOpen>
+        </example>
+        <example name="Qt JNI Messenger" docUrl="qthelp://org.qt-project.qtandroidextras.5152/qtandroidextras/qtandroidextras-jnimessenger-example.html" projectPath="androidextras/jnimessenger/jnimessenger.pro" imageUrl="qthelp://org.qt-project.qtandroidextras.5152/qtandroidextras/images/jnimessenger.png">
+            <description><![CDATA[Demonstrates communication between Java code and QML or C++ using NJI calls.]]></description>
+            <tags>android,extras,jni,messenger</tags>
+            <fileToOpen>androidextras/jnimessenger/main.cpp</fileToOpen>
+            <fileToOpen>androidextras/jnimessenger/main.qml</fileToOpen>
+            <fileToOpen>androidextras/jnimessenger/jnimessenger.h</fileToOpen>
+            <fileToOpen mainFile="true">androidextras/jnimessenger/jnimessenger.cpp</fileToOpen>
+        </example>
+        <example name="Qt JNI Music List" docUrl="qthelp://org.qt-project.qtandroidextras.5152/qtandroidextras/qtandroidextras-musiclist-example.html" projectPath="androidextras/musiclist/musiclist.pro" imageUrl="qthelp://org.qt-project.qtandroidextras.5152/qtandroidextras/images/musiclist.png">
+            <description><![CDATA[Demonstrates how to exchange data from complex Java objects.]]></description>
+            <tags>android,extras,jni,list,music</tags>
+            <fileToOpen>androidextras/musiclist/main.cpp</fileToOpen>
+            <fileToOpen>androidextras/musiclist/main.qml</fileToOpen>
+            <fileToOpen>androidextras/musiclist/musiclist.h</fileToOpen>
+            <fileToOpen mainFile="true">androidextras/musiclist/musiclist.cpp</fileToOpen>
+        </example>
+        <example name="Qt Notifier" docUrl="qthelp://org.qt-project.qtandroidextras.5152/qtandroidextras/qtandroidextras-notification-example.html" projectPath="androidextras/notification/notification.pro" imageUrl="qthelp://org.qt-project.qtandroidextras.5152/qtandroidextras/images/notification.png">
+            <description><![CDATA[Demonstrates calling Java code from an Android application.]]></description>
+            <tags>android,extras,notifier</tags>
+            <fileToOpen>androidextras/notification/main.cpp</fileToOpen>
+            <fileToOpen mainFile="true">androidextras/notification/qml/main.qml</fileToOpen>
+        </example>
+    </examples>
+</instructionals>

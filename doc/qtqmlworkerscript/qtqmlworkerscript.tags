@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tagfile>
+    <compound kind="class">
+        <name>QtQml.WorkerScript.WorkerScript</name>
+        <filename>qml-qtqml-workerscript-workerscript.html</filename>
+        <member kind="function" protection="public" virtualness="non" static="no">
+            <type></type>
+            <name>sendMessage</name>
+            <anchorfile>qml-qtqml-workerscript-workerscript.html</anchorfile>
+            <anchor>sendMessage-method</anchor>
+            <arglist>(jsobject message)</arglist>
+        </member>
+        <member kind="function" protection="public" virtualness="non" static="no">
+            <type></type>
+            <name>message</name>
+            <anchorfile>qml-qtqml-workerscript-workerscript.html</anchorfile>
+            <anchor>message-signal</anchor>
+            <arglist>(jsobject msg)</arglist>
+        </member>
+    </compound>
+</tagfile>

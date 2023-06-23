@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- qquickpdfdocument.cpp -->
+  <title>PdfDocument QML Type | Qt PDF 5.15.2</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+    <div class="main">
+    <div class="main-rounded">
+        <div class="navigationbar">
+        <ul>
+<li><a href="../qtdoc/index.html">Qt 5.15</a></li>
+<li><a href="qtpdf-index.html">Qt PDF</a></li>
+<li>QML Types</li>
+<li>PdfDocument QML Type</li>
+<li id="buildversion"><a href="qtpdf-index.html">Qt 5.15.2 Reference Documentation</a></li>
+    </ul>
+    </div>
+</div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#methods">Methods</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">PdfDocument QML Type</h1>
+<span class="subtitle"></span>
+<!-- $$$PdfDocument-brief -->
+<p>A representation of a PDF document. <a href="#details">More...</a></p>
+<!-- @@@PdfDocument -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Import Statement:</td><td class="memItemRight bottomAlign"> import QtQuick.Pdf 5.15</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qt 5.15</td></tr></table></div><ul>
+<li><a href="qml-qtquick-pdf-pdfdocument-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-pdf-pdfdocument.html#author-prop">author</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtquick-pdf-pdfdocument.html#creationDate-prop">creationDate</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtquick-pdf-pdfdocument.html#creator-prop">creator</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtquick-pdf-pdfdocument.html#error-prop">error</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtquick-pdf-pdfdocument.html#keywords-prop">keywords</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtquick-pdf-pdfdocument.html#maxPageHeight-prop">maxPageHeight</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-pdf-pdfdocument.html#maxPageWidth-prop">maxPageWidth</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-qtquick-pdf-pdfdocument.html#modificationDate-prop">modificationDate</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtquick-pdf-pdfdocument.html#pageCount-prop">pageCount</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-qtquick-pdf-pdfdocument.html#password-prop">password</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-qtquick-pdf-pdfdocument.html#producer-prop">producer</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtquick-pdf-pdfdocument.html#source-prop">source</a></b></b> : url</li>
+<li class="fn"><b><b><a href="qml-qtquick-pdf-pdfdocument.html#status-prop">status</a></b></b> : enum</li>
+<li class="fn"><b><b><a href="qml-qtquick-pdf-pdfdocument.html#subject-prop">subject</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-qtquick-pdf-pdfdocument.html#title-prop">title</a></b></b> : string</li>
+</ul>
+<a name="signals"></a>
+<h2 id="signals">Signals</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-qtquick-pdf-pdfdocument.html#passwordRequired-signal">passwordRequired</a></b></b>()</li>
+</ul>
+<a name="methods"></a>
+<h2 id="methods">Methods</h2>
+<ul>
+<li class="fn">size <b><b><a href="qml-qtquick-pdf-pdfdocument.html#pagePointSize-method">pagePointSize</a></b></b>(int <i>page</i>)</li>
+</ul>
+<!-- $$$PdfDocument-description -->
+<a name="details"></a>
+<h2 id="details">Detailed Description</h2>
+<p>PdfDocument provides access to PDF document meta-information. It is not necessary for rendering, as it is enough to use an <a href="../qtquick/qml-qtquick-image.html">Image</a> with source set to the URL of the PDF.</p>
+<!-- @@@PdfDocument -->
+<h2>Property Documentation</h2>
+<!-- $$$author -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="author-prop">
+<td class="tblQmlPropNode"><p>
+<a name="author-prop"></a><span class="name">author</span> : <span class="type">string</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>This property holds the name of the person who created the document.</p>
+</div></div><!-- @@@author -->
+<br/>
+<!-- $$$creationDate -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="creationDate-prop">
+<td class="tblQmlPropNode"><p>
+<a name="creationDate-prop"></a><span class="name">creationDate</span> : <span class="type">string</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>This property holds the date and time the document was created.</p>
+</div></div><!-- @@@creationDate -->
+<br/>
+<!-- $$$creator -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="creator-prop">
+<td class="tblQmlPropNode"><p>
+<a name="creator-prop"></a><span class="name">creator</span> : <span class="type">string</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>If the document was converted to PDF from another format, this property holds the name of the software that created the original document.</p>
+</div></div><!-- @@@creator -->
+<br/>
+<!-- $$$error -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="error-prop">
+<td class="tblQmlPropNode"><p>
+<a name="error-prop"></a><span class="name">error</span> : <span class="type">string</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>This property holds a translated string representation of the current error, if any.</p>
+<p><b>See also </b><a href="qml-qtquick-pdf-pdfdocument.html#status-prop">status</a>.</p>
+</div></div><!-- @@@error -->
+<br/>
+<!-- $$$keywords -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="keywords-prop">
+<td class="tblQmlPropNode"><p>
+<a name="keywords-prop"></a><span class="name">keywords</span> : <span class="type">string</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>This property holds the keywords associated with the document.</p>
+</div></div><!-- @@@keywords -->
+<br/>
+<!-- $$$maxPageHeight -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="maxPageHeight-prop">
+<td class="tblQmlPropNode"><p>
+<a name="maxPageHeight-prop"></a><span class="name">maxPageHeight</span> : <span class="type">real</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>This property holds the height of the tallest page in the document, in points.</p>
+</div></div><!-- @@@maxPageHeight -->
+<br/>
+<!-- $$$maxPageWidth -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="maxPageWidth-prop">
+<td class="tblQmlPropNode"><p>
+<a name="maxPageWidth-prop"></a><span class="name">maxPageWidth</span> : <span class="type">real</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>This property holds the width of the widest page in the document, in points.</p>
+</div></div><!-- @@@maxPageWidth -->
+<br/>
+<!-- $$$modificationDate -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="modificationDate-prop">
+<td class="tblQmlPropNode"><p>
+<a name="modificationDate-prop"></a><span class="name">modificationDate</span> : <span class="type">string</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>This property holds the date and time the document was most recently modified.</p>
+</div></div><!-- @@@modificationDate -->
+<br/>
+<!-- $$$pageCount -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="pageCount-prop">
+<td class="tblQmlPropNode"><p>
+<a name="pageCount-prop"></a><span class="name">pageCount</span> : <span class="type">int</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>This property holds the number of pages the PDF contains.</p>
+</div></div><!-- @@@pageCount -->
+<br/>
+<!-- $$$password -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="password-prop">
+<td class="tblQmlPropNode"><p>
+<a name="password-prop"></a><span class="name">password</span> : <span class="type">bool</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>This property holds the document password. If the <a href="qml-qtquick-pdf-pdfdocument.html#passwordRequired-signal">passwordRequired()</a> signal is emitted, the UI should prompt the user and then set this property so that document opening can continue.</p>
+</div></div><!-- @@@password -->
+<br/>
+<!-- $$$producer -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="producer-prop">
+<td class="tblQmlPropNode"><p>
+<a name="producer-prop"></a><span class="name">producer</span> : <span class="type">string</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>If the document was converted to PDF from another format, this property holds the name of the software that converted it to PDF.</p>
+</div></div><!-- @@@producer -->
+<br/>
+<!-- $$$source -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="source-prop">
+<td class="tblQmlPropNode"><p>
+<a name="source-prop"></a><span class="name">source</span> : <span class="type">url</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>This property holds a URL pointing to the PDF file to be loaded.</p>
+<p><b>Note: </b>At this time, only local filesystem URLs are supported.</p>
+</div></div><!-- @@@source -->
+<br/>
+<!-- $$$status -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="status-prop">
+<td class="tblQmlPropNode"><p>
+<a name="status-prop"></a><span class="name">status</span> : <span class="type">enum</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>This property tells the current status of the document. The possible values are:</p>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><code>PdfDocument.Null</code></td><td class="topAlign">The initial status after the document has been created or after it has been closed.</td></tr>
+<tr><td class="topAlign"><code>PdfDocument.Loading</code></td><td class="topAlign">The status after load() has been called and before the document is fully loaded.</td></tr>
+<tr><td class="topAlign"><code>PdfDocument.Ready</code></td><td class="topAlign">The status when the document is fully loaded and its data can be accessed.</td></tr>
+<tr><td class="topAlign"><code>PdfDocument.Unloading</code></td><td class="topAlign">The status after close() has been called on an open document. At this point the document is still valid and all its data can be accessed.</td></tr>
+<tr><td class="topAlign"><code>PdfDocument.Error</code></td><td class="topAlign">The status after Loading, if loading has failed.</td></tr>
+</table></div>
+</div></div><!-- @@@status -->
+<br/>
+<!-- $$$subject -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="subject-prop">
+<td class="tblQmlPropNode"><p>
+<a name="subject-prop"></a><span class="name">subject</span> : <span class="type">string</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>This property holds the subject of the document.</p>
+</div></div><!-- @@@subject -->
+<br/>
+<!-- $$$title -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="title-prop">
+<td class="tblQmlPropNode"><p>
+<a name="title-prop"></a><span class="name">title</span> : <span class="type">string</span></p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>This property holds the document's title. A typical viewer UI can bind this to the <code>Window.title</code> property.</p>
+</div></div><!-- @@@title -->
+<br/>
+<h2>Signal Documentation</h2>
+<!-- $$$passwordRequired[overload1]$$$passwordRequired -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="passwordRequired-signal">
+<td class="tblQmlFuncNode"><p>
+<a name="passwordRequired-signal"></a><span class="name">passwordRequired</span>()</p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>This signal is emitted when the PDF requires a password in order to open. The UI in a typical PDF viewer should prompt the user for the password and then set the password property when the user has provided it.</p>
+<p><b>Note: </b>The corresponding handler is <code>onPasswordRequired</code>.</p>
+</div></div><!-- @@@passwordRequired -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$pagePointSize[overload1]$$$pagePointSizeint -->
+<div class="qmlitem"><div class="qmlproto">
+<div class="table"><table class="qmlname">
+<tr valign="top" class="odd" id="pagePointSize-method">
+<td class="tblQmlFuncNode"><p>
+<a name="pagePointSize-method"></a><span class="type">size</span> <span class="name">pagePointSize</span>(<span class="type">int</span> <i>page</i>)</p></td></tr>
+</table></div></div>
+<div class="qmldoc"><p>Returns the size of the given <i>page</i> in points.</p>
+</div></div><!-- @@@pagePointSize -->
+<br/>
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2020 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

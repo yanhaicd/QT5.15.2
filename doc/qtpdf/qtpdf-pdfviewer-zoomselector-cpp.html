@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- pdfviewer.qdoc -->
+  <title>PDF Viewer Example | Qt PDF 5.15.2</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+    <div class="main">
+    <div class="main-rounded">
+        <div class="navigationbar">
+        <ul>
+<li><a href="../qtdoc/index.html">Qt 5.15</a></li>
+<li><a href="qtpdf-index.html">Qt PDF</a></li>
+<li>PDF Viewer Example</li>
+<li id="buildversion"><a href="qtpdf-index.html">Qt 5.15.2 Reference Documentation</a></li>
+    </ul>
+    </div>
+</div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<h1 class="title">PDF Viewer Example</h1>
+<span class="subtitle"></span>
+<pre class="cpp">
+ <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2017 Klaralvdalens Datakonsult AB (KDAB).
+ ** Contact: http://www.qt.io/licensing/
+ **
+ ** This file is part of the QtPDF module of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL3$
+ ** Commercial License Usage
+ ** Licensees holding valid commercial Qt licenses may use this file in
+ ** accordance with the commercial license agreement provided with the
+ ** Software or, alternatively, in accordance with the terms contained in
+ ** a written agreement between you and The Qt Company. For licensing terms
+ ** and conditions see http://www.qt.io/terms-conditions. For further
+ ** information use the contact form at http://www.qt.io/contact-us.
+ **
+ ** GNU Lesser General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU Lesser
+ ** General Public License version 3 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.LGPLv3 included in the
+ ** packaging of this file. Please review the following information to
+ ** ensure the GNU Lesser General Public License version 3 requirements
+ ** will be met: https://www.gnu.org/licenses/lgpl.html.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU
+ ** General Public License version 2.0 or later as published by the Free
+ ** Software Foundation and appearing in the file LICENSE.GPL included in
+ ** the packaging of this file. Please review the following information to
+ ** ensure the GNU General Public License version 2.0 requirements will be
+ ** met: http://www.gnu.org/licenses/gpl-2.0.html.
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &quot;zoomselector.h&quot;</span>
+
+ <span class="preprocessor">#include &lt;QLineEdit&gt;</span>
+
+ ZoomSelector<span class="operator">::</span>ZoomSelector(<span class="type"><a href="../qtwidgets/qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="../qtwidgets/qcombobox.html">QComboBox</a></span>(parent)
+ {
+     setEditable(<span class="keyword">true</span>);
+
+     addItem(QLatin1String(<span class="string">&quot;Fit Width&quot;</span>));
+     addItem(QLatin1String(<span class="string">&quot;Fit Page&quot;</span>));
+     addItem(QLatin1String(<span class="string">&quot;12%&quot;</span>));
+     addItem(QLatin1String(<span class="string">&quot;25%&quot;</span>));
+     addItem(QLatin1String(<span class="string">&quot;33%&quot;</span>));
+     addItem(QLatin1String(<span class="string">&quot;50%&quot;</span>));
+     addItem(QLatin1String(<span class="string">&quot;66%&quot;</span>));
+     addItem(QLatin1String(<span class="string">&quot;75%&quot;</span>));
+     addItem(QLatin1String(<span class="string">&quot;100%&quot;</span>));
+     addItem(QLatin1String(<span class="string">&quot;125%&quot;</span>));
+     addItem(QLatin1String(<span class="string">&quot;150%&quot;</span>));
+     addItem(QLatin1String(<span class="string">&quot;200%&quot;</span>));
+     addItem(QLatin1String(<span class="string">&quot;400%&quot;</span>));
+
+     connect(<span class="keyword">this</span><span class="operator">,</span> <span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type">void</span>(<span class="type"><a href="../qtwidgets/qcombobox.html">QComboBox</a></span><span class="operator">::</span><span class="operator">*</span>)(<span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> <span class="operator">&amp;</span>)<span class="operator">&gt;</span>(<span class="operator">&amp;</span><span class="type"><a href="../qtwidgets/qcombobox.html">QComboBox</a></span><span class="operator">::</span>currentIndexChanged)<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> <span class="operator">&amp;</span>ZoomSelector<span class="operator">::</span>onCurrentTextChanged);
+
+     connect(lineEdit()<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="../qtwidgets/qlineedit.html">QLineEdit</a></span><span class="operator">::</span>editingFinished<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> <span class="operator">[</span><span class="keyword">this</span><span class="operator">]</span>(){onCurrentTextChanged(lineEdit()<span class="operator">-</span><span class="operator">&gt;</span>text()); });
+ }
+
+ <span class="type">void</span> ZoomSelector<span class="operator">::</span>setZoomFactor(<span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> zoomFactor)
+ {
+     setCurrentText(<span class="type"><a href="../qtcore/qstring.html">QString</a></span><span class="operator">::</span>number(<a href="../qtcore/qtglobal.html#qRound">qRound</a>(zoomFactor <span class="operator">*</span> <span class="number">100</span>)) <span class="operator">+</span> QLatin1String(<span class="string">&quot;%&quot;</span>));
+ }
+
+ <span class="type">void</span> ZoomSelector<span class="operator">::</span>reset()
+ {
+     setCurrentIndex(<span class="number">8</span>); <span class="comment">// 100%</span>
+ }
+
+ <span class="type">void</span> ZoomSelector<span class="operator">::</span>onCurrentTextChanged(<span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> <span class="operator">&amp;</span>text)
+ {
+     <span class="keyword">if</span> (text <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;Fit Width&quot;</span>)) {
+         <span class="keyword">emit</span> zoomModeChanged(<span class="type">QPdfView</span><span class="operator">::</span>FitToWidth);
+     } <span class="keyword">else</span> <span class="keyword">if</span> (text <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;Fit Page&quot;</span>)) {
+         <span class="keyword">emit</span> zoomModeChanged(<span class="type">QPdfView</span><span class="operator">::</span>FitInView);
+     } <span class="keyword">else</span> {
+         <span class="type"><a href="../qtcore/qtglobal.html#qreal-typedef">qreal</a></span> factor <span class="operator">=</span> <span class="number">1.0</span>;
+
+         <span class="type"><a href="../qtcore/qstring.html">QString</a></span> withoutPercent(text);
+         withoutPercent<span class="operator">.</span>remove(QLatin1Char(<span class="char">'%'</span>));
+
+         bool ok <span class="operator">=</span> <span class="keyword">false</span>;
+         <span class="keyword">const</span> <span class="type">int</span> zoomLevel <span class="operator">=</span> withoutPercent<span class="operator">.</span>toInt(<span class="operator">&amp;</span>ok);
+         <span class="keyword">if</span> (ok)
+             factor <span class="operator">=</span> zoomLevel <span class="operator">/</span> <span class="number">100.0</span>;
+
+         <span class="keyword">emit</span> zoomModeChanged(<span class="type">QPdfView</span><span class="operator">::</span>CustomZoom);
+         <span class="keyword">emit</span> zoomFactorChanged(factor);
+     }
+ }
+</pre>

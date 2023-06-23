@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- qpdfpagenavigation.cpp -->
+  <title>QPdfPageNavigation Class | Qt PDF 5.15.2</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+    <div class="main">
+    <div class="main-rounded">
+        <div class="navigationbar">
+        <ul>
+<li><a href="../qtdoc/index.html">Qt 5.15</a></li>
+<li><a href="qtpdf-index.html">Qt PDF</a></li>
+<li><a href="qtpdf-module.html">C++ Classes</a></li>
+<li>QPdfPageNavigation</li>
+<li id="buildversion"><a href="qtpdf-index.html">Qt 5.15.2 Reference Documentation</a></li>
+    </ul>
+    </div>
+</div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#public-slots">Public Slots</a></li>
+<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">QPdfPageNavigation Class</h1>
+<!-- $$$QPdfPageNavigation-brief -->
+<p>The QPdfPageNavigation class handles the navigation through a PDF document. <a href="#details">More...</a></p>
+<!-- @@@QPdfPageNavigation -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign">  <span class="preprocessor">#include &lt;QPdfPageNavigation&gt;</span>
+</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qt 5.10</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Inherits:</td><td class="memItemRight bottomAlign"> <a href="../qtcore/qobject.html">QObject</a></td></tr></table></div><p>This class was introduced in Qt 5.10.</p>
+<ul>
+<li><a href="qpdfpagenavigation-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2 id="properties">Properties</h2>
+<div class="table"><table class="propsummary">
+<tr><td class="topAlign"><ul>
+<li class="fn"><b><a href="qpdfpagenavigation.html#canGoToNextPage-prop">canGoToNextPage</a></b> : const bool</li>
+<li class="fn"><b><a href="qpdfpagenavigation.html#canGoToPreviousPage-prop">canGoToPreviousPage</a></b> : const bool</li>
+<li class="fn"><b><a href="qpdfpagenavigation.html#currentPage-prop">currentPage</a></b> : int</li>
+</ul></td><td class="topAlign"><ul>
+<li class="fn"><b><a href="qpdfpagenavigation.html#document-prop">document</a></b> : QPdfDocument*</li>
+<li class="fn"><b><a href="qpdfpagenavigation.html#pageCount-prop">pageCount</a></b> : const int</li>
+</ul>
+</td></tr>
+</table></div>
+<a name="public-functions"></a>
+<h2 id="public-functions">Public Functions</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qpdfpagenavigation.html#QPdfPageNavigation">QPdfPageNavigation</a></b>(QObject *<i>parent</i> = nullptr)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qpdfpagenavigation.html#dtor.QPdfPageNavigation">~QPdfPageNavigation</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qpdfpagenavigation.html#canGoToNextPage">canGoToNextPage</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qpdfpagenavigation.html#canGoToPreviousPage">canGoToPreviousPage</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qpdfpagenavigation.html#currentPage">currentPage</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QPdfDocument *</td><td class="memItemRight bottomAlign"><b><a href="qpdfpagenavigation.html#document">document</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qpdfpagenavigation.html#pageCount">pageCount</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpdfpagenavigation.html#setCurrentPage">setCurrentPage</a></b>(int <i>page</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpdfpagenavigation.html#setDocument">setDocument</a></b>(QPdfDocument *<i>document</i>)</td></tr>
+</table></div>
+<a name="public-slots"></a>
+<h2 id="public-slots">Public Slots</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpdfpagenavigation.html#goToNextPage">goToNextPage</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpdfpagenavigation.html#goToPreviousPage">goToPreviousPage</a></b>()</td></tr>
+</table></div>
+<a name="signals"></a>
+<h2 id="signals">Signals</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpdfpagenavigation.html#canGoToNextPage-prop">canGoToNextPageChanged</a></b>(bool <i>canGo</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpdfpagenavigation.html#canGoToPreviousPage-prop">canGoToPreviousPageChanged</a></b>(bool <i>canGo</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpdfpagenavigation.html#currentPage-prop">currentPageChanged</a></b>(int <i>currentPage</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpdfpagenavigation.html#document-prop">documentChanged</a></b>(QPdfDocument *<i>document</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpdfpagenavigation.html#pageCount-prop">pageCountChanged</a></b>(int <i>pageCount</i>)</td></tr>
+</table></div>
+<a name="details"></a>
+<!-- $$$QPdfPageNavigation-description -->
+<div class="descr">
+<h2 id="details">Detailed Description</h2>
+</div>
+<p><b>See also </b><a href="qpdfdocument.html">QPdfDocument</a>.</p>
+<!-- @@@QPdfPageNavigation -->
+<div class="prop">
+<h2>Property Documentation</h2>
+<!-- $$$canGoToNextPage-prop$$$canGoToNextPage$$$canGoToNextPageChangedbool -->
+<h3 class="fn" id="canGoToNextPage-prop"><a name="canGoToNextPage-prop"></a><span class="name">canGoToNextPage</span> : const <span class="type">bool</span></h3>
+<p>Indicates whether there is a page after the current page.</p>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qpdfpagenavigation.html#canGoToNextPage">canGoToNextPage</a></b></span>() const</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>canGoToNextPageChanged</b></span>(bool <i>canGo</i>)</td></tr>
+</table></div>
+<p><b>See also </b><a href="qpdfpagenavigation.html#canGoToNextPage">canGoToNextPage</a>() and <a href="qpdfpagenavigation.html#goToNextPage">goToNextPage</a>().</p>
+<!-- @@@canGoToNextPage -->
+<!-- $$$canGoToPreviousPage-prop$$$canGoToPreviousPage$$$canGoToPreviousPageChangedbool -->
+<h3 class="fn" id="canGoToPreviousPage-prop"><a name="canGoToPreviousPage-prop"></a><span class="name">canGoToPreviousPage</span> : const <span class="type">bool</span></h3>
+<p>Indicates whether there is a page before the current page.</p>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qpdfpagenavigation.html#canGoToPreviousPage">canGoToPreviousPage</a></b></span>() const</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>canGoToPreviousPageChanged</b></span>(bool <i>canGo</i>)</td></tr>
+</table></div>
+<p><b>See also </b><a href="qpdfpagenavigation.html#canGoToPreviousPage">canGoToPreviousPage</a>() and <a href="qpdfpagenavigation.html#goToPreviousPage">goToPreviousPage</a>().</p>
+<!-- @@@canGoToPreviousPage -->
+<!-- $$$currentPage-prop$$$currentPage$$$setCurrentPageint$$$currentPageChangedint -->
+<h3 class="fn" id="currentPage-prop"><a name="currentPage-prop"></a><span class="name">currentPage</span> : <span class="type">int</span></h3>
+<p>This property holds the current page number in the document.</p>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qpdfpagenavigation.html#currentPage">currentPage</a></b></span>() const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qpdfpagenavigation.html#setCurrentPage">setCurrentPage</a></b></span>(int <i>page</i>)</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>currentPageChanged</b></span>(int <i>currentPage</i>)</td></tr>
+</table></div>
+<p><b>See also </b><a href="qpdfpagenavigation.html#currentPage">currentPage</a>() and <a href="qpdfpagenavigation.html#setCurrentPage">setCurrentPage</a>().</p>
+<!-- @@@currentPage -->
+<!-- $$$document-prop$$$document$$$setDocumentQPdfDocument*$$$documentChangedQPdfDocument* -->
+<h3 class="fn" id="document-prop"><a name="document-prop"></a><span class="name">document</span> : <span class="type"><a href="qpdfdocument.html">QPdfDocument</a></span>*</h3>
+<p>This property holds the document instance on which this object navigates.</p>
+<p>By default, this property is <code>nullptr</code>.</p>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QPdfDocument *</td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qpdfpagenavigation.html#document">document</a></b></span>() const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qpdfpagenavigation.html#setDocument">setDocument</a></b></span>(QPdfDocument *<i>document</i>)</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>documentChanged</b></span>(QPdfDocument *<i>document</i>)</td></tr>
+</table></div>
+<p><b>See also </b><a href="qpdfpagenavigation.html#document">document</a>(), <a href="qpdfpagenavigation.html#setDocument">setDocument</a>(), and <a href="qpdfdocument.html">QPdfDocument</a>.</p>
+<!-- @@@document -->
+<!-- $$$pageCount-prop$$$pageCount$$$pageCountChangedint -->
+<h3 class="fn" id="pageCount-prop"><a name="pageCount-prop"></a><span class="name">pageCount</span> : const <span class="type">int</span></h3>
+<p>This property holds the number of pages in the document.</p>
+<p><b>Access functions:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qpdfpagenavigation.html#pageCount">pageCount</a></b></span>() const</td></tr>
+</table></div>
+<p><b>Notifier signal:</b></p>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>pageCountChanged</b></span>(int <i>pageCount</i>)</td></tr>
+</table></div>
+<p><b>See also </b><a href="qpdfpagenavigation.html#pageCount">pageCount</a>().</p>
+<!-- @@@pageCount -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QPdfPageNavigation[overload1]$$$QPdfPageNavigationQObject* -->
+<h3 class="fn" id="QPdfPageNavigation"><a name="QPdfPageNavigation"></a>QPdfPageNavigation::<span class="name">QPdfPageNavigation</span>(<span class="type"><a href="../qtcore/qobject.html#QObject">QObject</a></span> *<i>parent</i> = nullptr)</h3>
+<p>Constructs a page navigation object with parent object <i>parent</i>.</p>
+<!-- @@@QPdfPageNavigation -->
+<!-- $$$goToNextPage[overload1]$$$goToNextPage -->
+<h3 class="fn" id="goToNextPage"><a name="goToNextPage"></a><code>[slot] </code><span class="type">void</span> QPdfPageNavigation::<span class="name">goToNextPage</span>()</h3>
+<p>Changes the current page to the next page.</p>
+<p>If there is no next page in the document, nothing happens.</p>
+<p><b>See also </b><a href="qpdfpagenavigation.html#canGoToNextPage">canGoToNextPage</a>.</p>
+<!-- @@@goToNextPage -->
+<!-- $$$goToPreviousPage[overload1]$$$goToPreviousPage -->
+<h3 class="fn" id="goToPreviousPage"><a name="goToPreviousPage"></a><code>[slot] </code><span class="type">void</span> QPdfPageNavigation::<span class="name">goToPreviousPage</span>()</h3>
+<p>Changes the current page to the previous page.</p>
+<p>If there is no previous page in the document, nothing happens.</p>
+<p><b>See also </b><a href="qpdfpagenavigation.html#canGoToPreviousPage">canGoToPreviousPage</a>.</p>
+<!-- @@@goToPreviousPage -->
+<!-- $$$~QPdfPageNavigation[overload1]$$$~QPdfPageNavigation -->
+<h3 class="fn" id="dtor.QPdfPageNavigation"><a name="dtor.QPdfPageNavigation"></a><code>[virtual] </code>QPdfPageNavigation::<span class="name">~QPdfPageNavigation</span>()</h3>
+<p>Destroys the page navigation object.</p>
+<!-- @@@~QPdfPageNavigation -->
+<!-- $$$canGoToNextPage -->
+<h3 class="fn" id="canGoToNextPage"><a name="canGoToNextPage"></a><span class="type">bool</span> QPdfPageNavigation::<span class="name">canGoToNextPage</span>() const</h3>
+<p>Returns whether there is a page after the current one.</p>
+<p><b>Note: </b>Getter function for property canGoToNextPage. </p>
+<!-- @@@canGoToNextPage -->
+<!-- $$$canGoToPreviousPage -->
+<h3 class="fn" id="canGoToPreviousPage"><a name="canGoToPreviousPage"></a><span class="type">bool</span> QPdfPageNavigation::<span class="name">canGoToPreviousPage</span>() const</h3>
+<p>Returns whether there is a page before the current one.</p>
+<p><b>Note: </b>Getter function for property canGoToPreviousPage. </p>
+<!-- @@@canGoToPreviousPage -->
+<!-- $$$currentPage -->
+<h3 class="fn" id="currentPage"><a name="currentPage"></a><span class="type">int</span> QPdfPageNavigation::<span class="name">currentPage</span>() const</h3>
+<p>Returns the current page number or <code>0</code> if there is no document set.</p>
+<p>After a document has been loaded, the currentPage will always be <code>0</code>.</p>
+<p><b>Note: </b>Getter function for property currentPage. </p>
+<p><b>See also </b><a href="qpdfpagenavigation.html#setCurrentPage">setCurrentPage</a>().</p>
+<!-- @@@currentPage -->
+<!-- $$$document -->
+<h3 class="fn" id="document"><a name="document"></a><span class="type"><a href="qpdfdocument.html">QPdfDocument</a></span> *QPdfPageNavigation::<span class="name">document</span>() const</h3>
+<p>Returns the document on which this object navigates, or a <code>nullptr</code> if none has set before.</p>
+<p><b>Note: </b>Getter function for property document. </p>
+<p><b>See also </b><a href="qpdfpagenavigation.html#setDocument">setDocument</a>() and <a href="qpdfdocument.html">QPdfDocument</a>.</p>
+<!-- @@@document -->
+<!-- $$$pageCount -->
+<h3 class="fn" id="pageCount"><a name="pageCount"></a><span class="type">int</span> QPdfPageNavigation::<span class="name">pageCount</span>() const</h3>
+<p>Returns the number of pages in the document or <code>0</code> if there is no document set.</p>
+<p><b>Note: </b>Getter function for property pageCount. </p>
+<!-- @@@pageCount -->
+<!-- $$$setCurrentPage -->
+<h3 class="fn" id="setCurrentPage"><a name="setCurrentPage"></a><span class="type">void</span> QPdfPageNavigation::<span class="name">setCurrentPage</span>(<span class="type">int</span> <i>page</i>)</h3>
+<p>Sets the current <i>page</i> number.</p>
+<p><b>Note: </b>Setter function for property <a href="qpdfpagenavigation.html#currentPage">currentPage</a>. </p>
+<p><b>See also </b><a href="qpdfpagenavigation.html#currentPage">currentPage</a>().</p>
+<!-- @@@setCurrentPage -->
+<!-- $$$setDocument -->
+<h3 class="fn" id="setDocument"><a name="setDocument"></a><span class="type">void</span> QPdfPageNavigation::<span class="name">setDocument</span>(<span class="type"><a href="qpdfdocument.html">QPdfDocument</a></span> *<i>document</i>)</h3>
+<p>Sets the <i>document</i> this object navigates on.</p>
+<p>After a new document has been set, the <a href="qpdfpagenavigation.html#currentPage">currentPage</a> will be <code>0</code>.</p>
+<p><b>Note: </b>Setter function for property <a href="qpdfpagenavigation.html#document">document</a>. </p>
+<p><b>See also </b><a href="qpdfpagenavigation.html#document">document</a>() and <a href="qpdfdocument.html">QPdfDocument</a>.</p>
+<!-- @@@setDocument -->
+</div>
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2020 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

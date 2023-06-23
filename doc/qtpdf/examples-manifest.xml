@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<instructionals module="QtPdf">
+    <examples>
+        <example name="PDF Viewer Example" docUrl="qthelp://org.qt-project.qtpdf.5152/qtpdf/qtpdf-pdfviewer-example.html" projectPath="pdfviewer/pdfviewer.pro">
+            <description><![CDATA[Renders PDF documents.]]></description>
+            <tags>pdf,viewer</tags>
+            <fileToOpen mainFile="true">pdfviewer/main.cpp</fileToOpen>
+        </example>
+    </examples>
+</instructionals>

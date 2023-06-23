@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- qtandroidextras-example-musiclist.qdoc -->
+  <title>Qt JNI Music List | Qt Android Extras 5.15.2</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+    <div class="main">
+    <div class="main-rounded">
+        <div class="navigationbar">
+        <ul>
+<li>Qt 5.15</li>
+<li><a href="qtandroidextras-index.html">Qt Android Extras</a></li>
+<li>Qt JNI Music List</li>
+<li id="buildversion"><a href="qtandroidextras-index.html">Qt 5.15.2 Reference Documentation</a></li>
+    </ul>
+    </div>
+</div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#running-the-example">Running the Example</a></li>
+<li class="level1"><a href="#create-the-music-classes">Create the Music Classes</a></li>
+<li class="level1"><a href="#fetch-the-music-list">Fetch the Music List</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Qt JNI Music List</h1>
+<span class="subtitle"></span>
+<!-- $$$musiclist-brief -->
+<p>Demonstrates how to exchange data from complex Java objects.</p>
+<!-- @@@musiclist -->
+<!-- $$$musiclist-description -->
+<div class="descr"> <a name="details"></a>
+<p class="centerAlign"><img src="images/musiclist.png" alt="" /></p><p>This example demonstrates how to move around data from a Java ArrayList of objects over to Qt. The example uses Android APIs to retrieve a list of music tracks, and displays some information about them with QML.</p>
+<p>When the application starts, it displays a list of music tracks, showing the track name, artist, and duration.</p>
+<a name="running-the-example"></a>
+<h4 id="running-the-example">Running the Example</h4>
+<p>To run the example from Qt Creator, open the <b>Welcome</b> mode and select the example from <b>Examples</b>. For more information, visit Building and Running an Example.</p>
+<a name="create-the-music-classes"></a>
+<h4 id="create-the-music-classes">Create the Music Classes</h4>
+<p>Let's create a Java class, <code>MusicTrack</code>, that defines some of the basic information about a track. In the Java side, create the following:</p>
+<pre class="cpp">
+ class MusicTrack {
+
+     private String title;
+     private String artist;
+     private long duration;
+
+     MusicTrack (String title, String artist, long duration) {
+        this.title = title;
+        this.artist = artist;
+        this.duration = duration;
+     }
+
+    public String getTitle() { return title; }
+
+    public String getArtist() { return artist; }
+
+    public long getDuration() { return duration;  }
+ }
+</pre>
+<p>Create another class with the same variables or information on the C++ side. The definition for <code>MusicTrack</code> class is the following:</p>
+<pre class="cpp">
+ <span class="keyword">class</span> MusicTrack : <span class="keyword">public</span> <span class="type"><a href="../qtcore/qobject.html">QObject</a></span>
+ {
+     Q_OBJECT
+     Q_PROPERTY(<span class="type"><a href="../qtcore/qstring.html">QString</a></span> title READ title CONSTANT)
+     Q_PROPERTY(<span class="type"><a href="../qtcore/qstring.html">QString</a></span> artist READ artist CONSTANT)
+     Q_PROPERTY(<span class="type">long</span> duration READ duration CONSTANT)
+
+ <span class="keyword">public</span>:
+     MusicTrack(<span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> title<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> artist<span class="operator">,</span> <span class="keyword">const</span> <span class="type">long</span> duration<span class="operator">,</span> <span class="type"><a href="../qtcore/qobject.html">QObject</a></span> <span class="operator">*</span>parent <span class="operator">=</span> nullptr)
+         : <span class="type"><a href="../qtcore/qobject.html">QObject</a></span>(parent)<span class="operator">,</span> m_title(title)<span class="operator">,</span> m_artist(artist)<span class="operator">,</span> m_duration(duration) {}
+
+     <span class="type"><a href="../qtcore/qstring.html">QString</a></span> title() <span class="keyword">const</span> { <span class="keyword">return</span> m_title; }
+     <span class="type"><a href="../qtcore/qstring.html">QString</a></span> artist() <span class="keyword">const</span> { <span class="keyword">return</span> m_artist; }
+     <span class="type">long</span> duration() <span class="keyword">const</span> { <span class="keyword">return</span> m_duration; }
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="../qtcore/qstring.html">QString</a></span> m_title;
+     <span class="type"><a href="../qtcore/qstring.html">QString</a></span> m_artist;
+     <span class="type">long</span> m_duration;
+ };
+</pre>
+<p><b>Note: </b>The <code>MusicTrack</code> class must be a <a href="../qtcore/qobject.html">QObject</a>-derived class to be used with as a QML context property. For more information, see QML and C++ Integration.</p>
+<a name="fetch-the-music-list"></a>
+<h4 id="fetch-the-music-list">Fetch the Music List</h4>
+<p>To retrieve the music list, the Android APIs are used. Add the following method to find music tracks that are available on the system. This method returns an ArrayList of <code>MusicTrack</code>.</p>
+<pre class="cpp">
+ package org.qtproject.example.musiclist;
+
+ import android.content.ContentResolver;
+ import android.content.Context;
+ import android.database.Cursor;
+ import android.net.Uri;
+ import android.provider.MediaStore;
+ import java.util.ArrayList;
+
+ public class MusicList {
+
+    static ArrayList&lt;MusicTrack&gt; fetchMusicList(Context context) {
+         ArrayList&lt;MusicTrack&gt; musicList = new ArrayList&lt;MusicTrack&gt;();
+         Cursor songCursor;
+
+         try {
+             ContentResolver contentResolver = context.getContentResolver();
+             Uri songUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+             songCursor = contentResolver.query(songUri, null, null, null, null);
+         } catch (SecurityException e) {
+             e.printStackTrace();
+             return musicList;
+         }
+
+         if (songCursor != null &amp;&amp; songCursor.moveToFirst())
+         {
+             int title = songCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.TITLE);
+             int artist = songCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ARTIST);
+             int duration = duration = songCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DURATION);
+
+             do {
+                 String currentTitle = songCursor.getString(title);
+                 String currentArtist = songCursor.getString(artist);
+                 long currentDuration = songCursor.getLong(duration);
+                 musicList.add(new MusicTrack(currentTitle, currentArtist, currentDuration));
+             } while (songCursor.moveToNext());
+         }
+
+         if (songCursor != null)
+             songCursor.close();
+
+         return musicList;
+     }
+ }
+</pre>
+<p>Using the JNI helpers provided with Qt, call the previous method to first get an <a href="qandroidjniobject.html">QAndroidJniObject</a> containing an ArrayList of objects. In the C++ code, you need to go through the Java ArrayList and create a parallel list on C++. Add the following lines to do that:</p>
+<pre class="cpp">
+     <span class="type"><a href="qandroidjniobject.html">QAndroidJniObject</a></span> musicList <span class="operator">=</span> <span class="type"><a href="qandroidjniobject.html">QAndroidJniObject</a></span><span class="operator">::</span>callStaticObjectMethod(
+         <span class="string">&quot;org/qtproject/example/musiclist/MusicList&quot;</span><span class="operator">,</span>
+         <span class="string">&quot;fetchMusicList&quot;</span><span class="operator">,</span>
+         <span class="string">&quot;(Landroid/content/Context;)Ljava/util/ArrayList;&quot;</span><span class="operator">,</span>
+         <span class="type"><a href="qtandroid.html">QtAndroid</a></span><span class="operator">::</span>androidContext()<span class="operator">.</span>object());
+
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> musicList<span class="operator">.</span>callMethod<span class="operator">&lt;</span>jint<span class="operator">&gt;</span>(<span class="string">&quot;size&quot;</span>); <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="type"><a href="qandroidjniobject.html">QAndroidJniObject</a></span> track <span class="operator">=</span> musicList<span class="operator">.</span>callObjectMethod(<span class="string">&quot;get&quot;</span><span class="operator">,</span> <span class="string">&quot;(I)Ljava/lang/Object;&quot;</span><span class="operator">,</span> i);
+         <span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> title <span class="operator">=</span> track<span class="operator">.</span>callObjectMethod(<span class="string">&quot;getTitle&quot;</span><span class="operator">,</span> <span class="string">&quot;()Ljava/lang/String;&quot;</span>)<span class="operator">.</span>toString();
+         <span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> artist <span class="operator">=</span> track<span class="operator">.</span>callObjectMethod(<span class="string">&quot;getArtist&quot;</span><span class="operator">,</span> <span class="string">&quot;()Ljava/lang/String;&quot;</span>)<span class="operator">.</span>toString();
+         <span class="keyword">const</span> <span class="type">long</span> duration <span class="operator">=</span> track<span class="operator">.</span>callMethod<span class="operator">&lt;</span>jlong<span class="operator">&gt;</span>(<span class="string">&quot;getDuration&quot;</span>);
+         m_assembledMusicList<span class="operator">.</span>append(<span class="keyword">new</span> MusicTrack(title<span class="operator">,</span> artist<span class="operator">,</span> duration<span class="operator">,</span> <span class="keyword">this</span>));
+     }
+</pre>
+<p>Then, add a function to return the resulted <a href="../qtcore/qlist.html">QList</a>:</p>
+<pre class="cpp">
+ <span class="type"><a href="../qtcore/qlist.html">QList</a></span><span class="operator">&lt;</span>MusicTrack <span class="operator">*</span><span class="operator">&gt;</span> MusicList<span class="operator">::</span>assembledMusicList() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> m_assembledMusicList;
+ }
+</pre>
+<p>To display the music list, create a ListView that uses the <a href="../qtcore/qlist.html">QList</a> as a property. Register the property as follows:</p>
+<pre class="cpp">
+     MusicList <span class="operator">*</span>musicList <span class="operator">=</span> <span class="keyword">new</span> MusicList(<span class="operator">&amp;</span>app);
+     engine<span class="operator">.</span>rootContext()<span class="operator">-</span><span class="operator">&gt;</span>setContextProperty(QLatin1String(<span class="string">&quot;musiclist&quot;</span>)<span class="operator">,</span>
+                                              <span class="type"><a href="../qtcore/qvariant.html">QVariant</a></span><span class="operator">::</span>fromValue(musicList<span class="operator">-</span><span class="operator">&gt;</span>assembledMusicList()));
+</pre>
+<p>In the QML code, define the model of the ListView as follows:</p>
+<pre class="cpp">
+         <span class="name">model</span>: <span class="name">musiclist</span>
+</pre>
+<p><a href="https://code.qt.io/cgit/qt/qtandroidextras.git/tree/examples/androidextras/musiclist?h=5.15">Example project @ code.qt.io</a></p>
+</div>
+<p><b>See also </b>Qt for Android and <a href="qtandroidextras-index.html">Qt Android Extras</a>.</p>
+<!-- @@@musiclist -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2020 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

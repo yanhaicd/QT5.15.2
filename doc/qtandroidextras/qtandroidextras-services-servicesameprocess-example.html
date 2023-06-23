@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- qtandroidextras-example-service-same-process.qdoc -->
+  <title>Native Android Service in Same Process | Qt Android Extras 5.15.2</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+    <div class="main">
+    <div class="main-rounded">
+        <div class="navigationbar">
+        <ul>
+<li>Qt 5.15</li>
+<li><a href="qtandroidextras-index.html">Qt Android Extras</a></li>
+<li>Native Android Service in Same Process</li>
+<li id="buildversion"><a href="qtandroidextras-index.html">Qt 5.15.2 Reference Documentation</a></li>
+    </ul>
+    </div>
+</div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#running-the-example">Running the Example</a></li>
+<li class="level1"><a href="#create-the-service">Create the Service</a></li>
+<li class="level1"><a href="#manage-the-androidmanifest-xml-file">Manage the AndroidManifest.xml File</a></li>
+<li class="level1"><a href="#start-the-service">Start the Service</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Native Android Service in Same Process</h1>
+<span class="subtitle"></span>
+<!-- $$$services/servicesameprocess-brief -->
+<p>Demonstrates how to run an Android service in the main process, and how to communicate between QML/C++ and a Java service.</p>
+<!-- @@@services/servicesameprocess -->
+<!-- $$$services/servicesameprocess-description -->
+<div class="descr"> <a name="details"></a>
+<p class="centerAlign"><img src="images/androidservices.png" alt="" /></p><p>This example demonstrates how to create and run a simple Android service in the same process as the main activity <code>QtActivity</code>, and then exchange data between QML/C++ and the Java service. This service is a pure Java implementation.</p>
+<p>When clicking the <b>Send to Service</b> button, the name entered in the QML view, Qt, in this case, is sent to the Android service. Then, the service replies back with a message <code>Hello Qt</code> which is printed in the QML view.</p>
+<a name="running-the-example"></a>
+<h4 id="running-the-example">Running the Example</h4>
+<p>To run the example from Qt Creator, open the <b>Welcome</b> mode and select the example from <b>Examples</b>. For more information, visit Building and Running an Example.</p>
+<a name="create-the-service"></a>
+<h4 id="create-the-service">Create the Service</h4>
+<p>When running the app's process, you can extend either <code>QtService</code> or <code>Service</code>. Extending <code>QtService</code> allows Qt to load all the necessary libraries to load Qt components correctly and call native methods on Android. However, here the service is running in the same process, so extending either class works.</p>
+<p>Start by creating the Java service class. This is a normal Android <code>Service</code> that receives a name from QML and replies back with <code>Hello &lt;name&gt;</code>:</p>
+<pre class="cpp">
+ package org.qtproject.example.qtandroidservice;
+
+ import android.content.Context;
+ import android.content.Intent;
+ import android.util.Log;
+ import android.app.Service;
+ import android.os.IBinder;
+
+ public class QtAndroidService extends Service
+ {
+     private static native void sendToQt(String message);
+     private static final String TAG = &quot;QtAndroidService&quot;;
+
+     @Override
+     public void onCreate() {
+         super.onCreate();
+         Log.i(TAG, &quot;Creating Service&quot;);
+     }
+
+     @Override
+     public void onDestroy() {
+         super.onDestroy();
+         Log.i(TAG, &quot;Destroying Service&quot;);
+     }
+
+     @Override
+     public int onStartCommand(Intent intent, int flags, int startId) {
+         int ret = super.onStartCommand(intent, flags, startId);
+         String name = new String(intent.getByteArrayExtra(&quot;name&quot;));
+         Log.i(TAG, &quot;Service received name: &quot; + name);
+         String message = &quot;Hello &quot; + name;
+         sendToQt(message);
+         Log.i(TAG, &quot;Service sent back message: &quot; + message);
+
+         return ret;
+     }
+
+     @Override
+     public IBinder onBind(Intent intent) {
+         return null;
+     }
+ }
+</pre>
+<p>In the overwritten method <a href="https://developer.android.com/reference/android/app/Service#onStartCommand(android.content.Intent,%20int,%20int)">onStartCommand()</a>, the service receives a name from the calling intent, then calls the native method <code>sendToQt(String message)</code>. For more information on managing native calls in Qt, see <a href="qtandroidextras-jnimessenger-example.html#calling-qml-c-functions-from-java-code">Calling QML/C++ Functions from Java Code</a>.</p>
+<a name="manage-the-androidmanifest-xml-file"></a>
+<h4 id="manage-the-androidmanifest-xml-file">Manage the AndroidManifest.xml File</h4>
+<p>To use the service, it must be declared in the <code>AndroidManifest.xml</code> file. When using pure Android Service in the main app process, use the following:</p>
+<pre class="cpp">
+         &lt;service android:name=&quot;.QtAndroidService&quot;&gt;
+             &lt;!-- Background running --&gt;
+             &lt;meta-data android:name=&quot;android.app.background_running&quot; android:value=&quot;true&quot;/&gt;
+             &lt;!-- Background running --&gt;
+         &lt;/service&gt;
+</pre>
+<a name="start-the-service"></a>
+<h4 id="start-the-service">Start the Service</h4>
+<p>Before starting the service, register the native methods, then call the <a href="https://developer.android.com/reference/android/content/Context#startService(android.content.Intent)">startService()</a> method, as follows:</p>
+<pre class="cpp">
+ <span class="type">void</span> <span class="type">QtAndroidService</span><span class="operator">::</span>sendToService(<span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> <span class="operator">&amp;</span>name)
+ {
+     <span class="type"><a href="qandroidintent.html">QAndroidIntent</a></span> serviceIntent(<span class="type"><a href="qtandroid.html">QtAndroid</a></span><span class="operator">::</span>androidActivity()<span class="operator">.</span>object()<span class="operator">,</span>
+                                         <span class="string">&quot;org/qtproject/example/qtandroidservice/QtAndroidService&quot;</span>);
+     serviceIntent<span class="operator">.</span>putExtra(<span class="string">&quot;name&quot;</span><span class="operator">,</span> name<span class="operator">.</span>toUtf8());
+     <span class="type"><a href="qandroidjniobject.html">QAndroidJniObject</a></span> result <span class="operator">=</span> <span class="type"><a href="qtandroid.html">QtAndroid</a></span><span class="operator">::</span>androidActivity()<span class="operator">.</span>callObjectMethod(
+                 <span class="string">&quot;startService&quot;</span><span class="operator">,</span>
+                 <span class="string">&quot;(Landroid/content/Intent;)Landroid/content/ComponentName;&quot;</span><span class="operator">,</span>
+                 serviceIntent<span class="operator">.</span>handle()<span class="operator">.</span>object());
+ }
+</pre>
+<p>This function is used to start the Service. If the service is already running, it will only send the names without starting a new service instance.</p>
+<p>Then, you have to add the necessary Connections, as described in <a href="qtandroidextras-jnimessenger-example.html">Qt JNI Messenger Example</a>.</p>
+<p><a href="https://code.qt.io/cgit/qt/qtandroidextras.git/tree/examples/androidextras/services/servicesameprocess?h=5.15">Example project @ code.qt.io</a></p>
+</div>
+<p><b>See also </b>Android Services, Qt for Android, and <a href="qtandroidextras-index.html">Qt Android Extras</a>.</p>
+<!-- @@@services/servicesameprocess -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2020 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- qpdfnamespace.qdoc -->
+  <title>QPdf Namespace | Qt PDF 5.15.2</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+    <div class="main">
+    <div class="main-rounded">
+        <div class="navigationbar">
+        <ul>
+<li><a href="../qtdoc/index.html">Qt 5.15</a></li>
+<li><a href="qtpdf-index.html">Qt PDF</a></li>
+<li>QPdf Namespace</li>
+<li id="buildversion"><a href="qtpdf-index.html">Qt 5.15.2 Reference Documentation</a></li>
+    </ul>
+    </div>
+</div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#types">Types</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">QPdf Namespace</h1>
+<!-- $$$QPdf-brief -->
+<p>The QPdf namespace contains miscellaneous identifiers used throughout the <a href="qtpdf-module.html">QtPdf</a> module. <a href="#details">More...</a></p>
+<!-- @@@QPdf -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign">  <span class="preprocessor">#include &lt;QPdf&gt;</span>
+</td></tr></table></div><ul>
+</ul>
+<a name="types"></a>
+<h2 id="types">Types</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qpdf.html#RenderFlag-enum">RenderFlag</a></b> { NoRenderFlags, RenderAnnotations, RenderOptimizedForLcd, RenderGrayscale, RenderForceHalftone, &hellip;, RenderPathAliased }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> flags </td><td class="memItemRight bottomAlign"><b><a href="qpdf.html#RenderFlag-enum">RenderFlags</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qpdf.html#Rotation-enum">Rotation</a></b> { Rotate0, Rotate90, Rotate180, Rotate270 }</td></tr>
+</table></div>
+<a name="details"></a>
+<!-- $$$QPdf-description -->
+<div class="descr">
+<h2 id="details">Detailed Description</h2>
+</div>
+<!-- @@@QPdf -->
+<div class="types">
+<h2>Type Documentation</h2>
+<!-- $$$RenderFlag$$$NoRenderFlags$$$RenderAnnotations$$$RenderOptimizedForLcd$$$RenderGrayscale$$$RenderForceHalftone$$$RenderTextAliased$$$RenderImageAliased$$$RenderPathAliased -->
+<h3 class="flags" id="RenderFlag-enum"><a name="RenderFlag-enum"></a>enum QPdf::<span class="name">RenderFlag</span><br/>flags QPdf::<span class="name">RenderFlags</span></h3>
+<p>This enum is used to describe how a page should be rendered.</p>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><code>QPdf::NoRenderFlags</code></td><td class="topAlign tblval"><code>0x000</code></td><td class="topAlign">The default value, representing no flags.</td></tr>
+<tr><td class="topAlign"><code>QPdf::RenderAnnotations</code></td><td class="topAlign tblval"><code>0x001</code></td><td class="topAlign">The page is rendered with annotations.</td></tr>
+<tr><td class="topAlign"><code>QPdf::RenderOptimizedForLcd</code></td><td class="topAlign tblval"><code>0x002</code></td><td class="topAlign">The text of the page is rendered optimized for LCD display.</td></tr>
+<tr><td class="topAlign"><code>QPdf::RenderGrayscale</code></td><td class="topAlign tblval"><code>0x004</code></td><td class="topAlign">The page is rendered grayscale.</td></tr>
+<tr><td class="topAlign"><code>QPdf::RenderForceHalftone</code></td><td class="topAlign tblval"><code>0x008</code></td><td class="topAlign">Always use halftones for rendering if the output image is stretched.</td></tr>
+<tr><td class="topAlign"><code>QPdf::RenderTextAliased</code></td><td class="topAlign tblval"><code>0x010</code></td><td class="topAlign">Anti-aliasing is disabled for rendering text.</td></tr>
+<tr><td class="topAlign"><code>QPdf::RenderImageAliased</code></td><td class="topAlign tblval"><code>0x020</code></td><td class="topAlign">Anti-aliasing is disabled for rendering images.</td></tr>
+<tr><td class="topAlign"><code>QPdf::RenderPathAliased</code></td><td class="topAlign tblval"><code>0x040</code></td><td class="topAlign">Anti-aliasing is disabled for rendering paths.</td></tr>
+</table></div>
+<p>The RenderFlags type is a typedef for <a href="../qtcore/qflags.html">QFlags</a>&lt;RenderFlag&gt;. It stores an OR combination of RenderFlag values.</p>
+<p><b>See also </b><a href="qpdfdocument.html#render">QPdfDocument::render</a>().</p>
+<!-- @@@RenderFlag -->
+<!-- $$$Rotation$$$Rotate0$$$Rotate90$$$Rotate180$$$Rotate270 -->
+<h3 class="fn" id="Rotation-enum"><a name="Rotation-enum"></a>enum QPdf::<span class="name">Rotation</span></h3>
+<p>This enum describes the rotation of the page for rendering.</p>
+<div class="table"><table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><code>QPdf::Rotate0</code></td><td class="topAlign tblval"><code>0</code></td><td class="topAlign">Do not rotate (the default)</td></tr>
+<tr><td class="topAlign"><code>QPdf::Rotate90</code></td><td class="topAlign tblval"><code>1</code></td><td class="topAlign">Rotate 90 degrees clockwise</td></tr>
+<tr><td class="topAlign"><code>QPdf::Rotate180</code></td><td class="topAlign tblval"><code>2</code></td><td class="topAlign">Rotate 180 degrees</td></tr>
+<tr><td class="topAlign"><code>QPdf::Rotate270</code></td><td class="topAlign tblval"><code>3</code></td><td class="topAlign">Rotate 270 degrees clockwise</td></tr>
+</table></div>
+<p><b>See also </b><a href="qpdfdocument.html#render">QPdfDocument::render</a>().</p>
+<!-- @@@Rotation -->
+</div>
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2020 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

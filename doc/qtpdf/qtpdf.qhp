@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QtHelpProject version="1.0">
+    <namespace>org.qt-project.qtpdf.5152</namespace>
+    <virtualFolder>qtpdf</virtualFolder>
+    <metaData name="version" value="5.15.2"/>
+    <customFilter name="QtPdf 5.15.2">
+        <filterAttribute>5.15.2</filterAttribute>
+        <filterAttribute>qtpdf</filterAttribute>
+    </customFilter>
+    <filterSection>
+        <filterAttribute>5.15.2</filterAttribute>
+        <filterAttribute>qtpdf</filterAttribute>
+        <filterAttribute>qtrefdoc</filterAttribute>
+        <toc>
+            <section ref="qtpdf-index.html" title="Qt PDF">
+                <section ref="qtpdf-module.html" title="C++ Classes">
+                    <section ref="qpdfdestination.html" title="QPdfDestination Class Reference">
+                        <section ref="qpdfdestination-members.html" title="List of all members"/>
+                    </section>
+                    <section ref="qpdfdocument.html" title="QPdfDocument Class Reference">
+                        <section ref="qpdfdocument-members.html" title="List of all members"/>
+                    </section>
+                    <section ref="qpdfdocumentrenderoptions.html" title="QPdfDocumentRenderOptions Class Reference">
+                        <section ref="qpdfdocumentrenderoptions-members.html" title="List of all members"/>
+                    </section>
+                    <section ref="qpdfpagenavigation.html" title="QPdfPageNavigation Class Reference">
+                        <section ref="qpdfpagenavigation-members.html" title="List of all members"/>
+                    </section>
+                    <section ref="qpdfpagerenderer.html" title="QPdfPageRenderer Class Reference">
+                        <section ref="qpdfpagerenderer-members.html" title="List of all members"/>
+                    </section>
+                    <section ref="qpdfselection.html" title="QPdfSelection Class Reference">
+                        <section ref="qpdfselection-members.html" title="List of all members"/>
+                    </section>
+                </section>
+                <section ref="qtquick-pdf-qmlmodule.html" title="QML Types">
+                    <section ref="qml-qtquick-pdf-pdfdocument.html" title="PdfDocument Type Reference">
+                        <section ref="qml-qtquick-pdf-pdfdocument-members.html" title="List of all members"/>
+                    </section>
+                    <section ref="qml-qtquick-pdf-pdflinkmodel.html" title="PdfLinkModel Type Reference">
+                        <section ref="qml-qtquick-pdf-pdflinkmodel-members.html" title="List of all members"/>
+                    </section>
+                    <section ref="qml-qtquick-pdf-pdfnavigationstack.html" title="PdfNavigationStack Type Reference">
+                        <section ref="qml-qtquick-pdf-pdfnavigationstack-members.html" title="List of all members"/>
+                    </section>
+                    <section ref="qml-qtquick-pdf-pdfsearchmodel.html" title="PdfSearchModel Type Reference">
+                        <section ref="qml-qtquick-pdf-pdfsearchmodel-members.html" title="List of all members"/>
+                    </section>
+                    <section ref="qml-qtquick-pdf-pdfselection.html" title="PdfSelection Type Reference">
+                        <section ref="qml-qtquick-pdf-pdfselection-members.html" title="List of all members"/>
+                    </section>
+                </section>
+                <section ref="qtpdf-examples.html" title="Examples">
+                    <section ref="qtpdf-pdfviewer-example.html" title="PDF Viewer Example"/>
+                </section>
+            </section>
+        </toc>
+        <keywords>
+            <keyword name="PdfDocument" id="QML.PdfDocument" ref="qml-qtquick-pdf-pdfdocument.html"/>
+            <keyword name="PdfLinkModel" id="QML.PdfLinkModel" ref="qml-qtquick-pdf-pdflinkmodel.html"/>
+            <keyword name="PdfNavigationStack" id="QML.PdfNavigationStack" ref="qml-qtquick-pdf-pdfnavigationstack.html"/>
+            <keyword name="PdfSearchModel" id="QML.PdfSearchModel" ref="qml-qtquick-pdf-pdfsearchmodel.html"/>
+            <keyword name="PdfSelection" id="QML.PdfSelection" ref="qml-qtquick-pdf-pdfselection.html"/>
+            <keyword name="QPdf" id="QPdf" ref="qpdf.html"/>
+            <keyword name="QPdf::NoRenderFlags" id="QPdf::NoRenderFlags" ref="qpdf.html#RenderFlag-enum"/>
+            <keyword name="QPdf::RenderAnnotations" id="QPdf::RenderAnnotations" ref="qpdf.html#RenderFlag-enum"/>
+            <keyword name="QPdf::RenderFlag" id="QPdf::RenderFlag" ref="qpdf.html#RenderFlag-enum"/>
+            <keyword name="QPdf::RenderFlags" id="QPdf::RenderFlags" ref="qpdf.html#RenderFlag-enum"/>
+            <keyword name="QPdf::RenderForceHalftone" id="QPdf::RenderForceHalftone" ref="qpdf.html#RenderFlag-enum"/>
+            <keyword name="QPdf::RenderGrayscale" id="QPdf::RenderGrayscale" ref="qpdf.html#RenderFlag-enum"/>
+            <keyword name="QPdf::RenderImageAliased" id="QPdf::RenderImageAliased" ref="qpdf.html#RenderFlag-enum"/>
+            <keyword name="QPdf::RenderOptimizedForLcd" id="QPdf::RenderOptimizedForLcd" ref="qpdf.html#RenderFlag-enum"/>
+            <keyword name="QPdf::RenderPathAliased" id="QPdf::RenderPathAliased" ref="qpdf.html#RenderFlag-enum"/>
+            <keyword name="QPdf::RenderTextAliased" id="QPdf::RenderTextAliased" ref="qpdf.html#RenderFlag-enum"/>
+            <keyword name="QPdf::Rotate0" id="QPdf::Rotate0" ref="qpdf.html#Rotation-enum"/>
+            <keyword name="QPdf::Rotate180" id="QPdf::Rotate180" ref="qpdf.html#Rotation-enum"/>
+            <keyword name="QPdf::Rotate270" id="QPdf::Rotate270" ref="qpdf.html#Rotation-enum"/>
+            <keyword name="QPdf::Rotate90" id="QPdf::Rotate90" ref="qpdf.html#Rotation-enum"/>
+            <keyword name="QPdf::Rotation" id="QPdf::Rotation" ref="qpdf.html#Rotation-enum"/>
+            <keyword name="QPdfDestination" id="QPdfDestination" ref="qpdfdestination.html"/>
+            <keyword name="QPdfDocument" id="QPdfDocument" ref="qpdfdocument.html"/>
+            <keyword name="QPdfDocument::Author" id="QPdfDocument::Author" ref="qpdfdocument.html#MetaDataField-enum"/>
+            <keyword name="QPdfDocument::CreationDate" id="QPdfDocument::CreationDate" ref="qpdfdocument.html#MetaDataField-enum"/>
+            <keyword name="QPdfDocument::Creator" id="QPdfDocument::Creator" ref="qpdfdocument.html#MetaDataField-enum"/>
+            <keyword name="QPdfDocument::Error" id="QPdfDocument::Error" ref="qpdfdocument.html#Status-enum"/>
+            <keyword name="QPdfDocument::Keywords" id="QPdfDocument::Keywords" ref="qpdfdocument.html#MetaDataField-enum"/>
+            <keyword name="QPdfDocument::Loading" id="QPdfDocument::Loading" ref="qpdfdocument.html#Status-enum"/>
+            <keyword name="QPdfDocument::MetaDataField" id="QPdfDocument::MetaDataField" ref="qpdfdocument.html#MetaDataField-enum"/>
+            <keyword name="QPdfDocument::ModificationDate" id="QPdfDocument::ModificationDate" ref="qpdfdocument.html#MetaDataField-enum"/>
+            <keyword name="QPdfDocument::Null" id="QPdfDocument::Null" ref="qpdfdocument.html#Status-enum"/>
+            <keyword name="QPdfDocument::Producer" id="QPdfDocument::Producer" ref="qpdfdocument.html#MetaDataField-enum"/>
+            <keyword name="QPdfDocument::Ready" id="QPdfDocument::Ready" ref="qpdfdocument.html#Status-enum"/>
+            <keyword name="QPdfDocument::Status" id="QPdfDocument::Status" ref="qpdfdocument.html#Status-enum"/>
+            <keyword name="QPdfDocument::Subject" id="QPdfDocument::Subject" ref="qpdfdocument.html#MetaDataField-enum"/>
+            <keyword name="QPdfDocument::Title" id="QPdfDocument::Title" ref="qpdfdocument.html#MetaDataField-enum"/>
+            <keyword name="QPdfDocument::Unloading" id="QPdfDocument::Unloading" ref="qpdfdocument.html#Status-enum"/>
+            <keyword name="QPdfDocumentRenderOptions" id="QPdfDocumentRenderOptions" ref="qpdfdocumentrenderoptions.html"/>
+            <keyword name="QPdfPageNavigation" id="QPdfPageNavigation" ref="qpdfpagenavigation.html"/>
+            <keyword name="QPdfPageRenderer" id="QPdfPageRenderer" ref="qpdfpagerenderer.html"/>
+            <keyword name="QPdfPageRenderer::MultiThreaded" id="QPdfPageRenderer::MultiThreaded" ref="qpdfpagerenderer.html#RenderMode-enum"/>
+            <keyword name="QPdfPageRenderer::RenderMode" id="QPdfPageRenderer::RenderMode" ref="qpdfpagerenderer.html#RenderMode-enum"/>
+            <keyword name="QPdfPageRenderer::SingleThreaded" id="QPdfPageRenderer::SingleThreaded" ref="qpdfpagerenderer.html#RenderMode-enum"/>
+            <keyword name="QPdfSelection" id="QPdfSelection" ref="qpdfselection.html"/>
+            <keyword name="Qt PDF" id="Qt PDF" ref="qtpdf-index.html"/>
+            <keyword name="Qt PDF C++ Classes" id="Qt PDF C++ Classes" ref="qtpdf-module.html"/>
+            <keyword name="Qt PDF Examples" id="Qt PDF Examples" ref="qtpdf-examples.html"/>
+            <keyword name="Qt Quick PDF QML Types" id="Qt Quick PDF QML Types" ref="qtquick-pdf-qmlmodule.html"/>
+            <keyword name="author" id="PdfDocument::author" ref="qml-qtquick-pdf-pdfdocument.html#author-prop"/>
+            <keyword name="back" id="PdfNavigationStack::back" ref="qml-qtquick-pdf-pdfnavigationstack.html#back-method"/>
+            <keyword name="boundingRectangle" id="QPdfSelection::boundingRectangle" ref="qpdfselection.html#boundingRectangle-prop"/>
+            <keyword name="bounds" id="QPdfSelection::bounds" ref="qpdfselection.html#bounds-prop"/>
+            <keyword name="bounds" id="QPdfSelection::bounds" ref="qpdfselection.html#bounds-prop"/>
+            <keyword name="canGoToNextPage" id="QPdfPageNavigation::canGoToNextPage" ref="qpdfpagenavigation.html#canGoToNextPage"/>
+            <keyword name="canGoToNextPage" id="QPdfPageNavigation::canGoToNextPage" ref="qpdfpagenavigation.html#canGoToNextPage-prop"/>
+            <keyword name="canGoToNextPageChanged" id="QPdfPageNavigation::canGoToNextPageChanged" ref="qpdfpagenavigation.html#canGoToNextPage-prop"/>
+            <keyword name="canGoToPreviousPage" id="QPdfPageNavigation::canGoToPreviousPage" ref="qpdfpagenavigation.html#canGoToPreviousPage"/>
+            <keyword name="canGoToPreviousPage" id="QPdfPageNavigation::canGoToPreviousPage" ref="qpdfpagenavigation.html#canGoToPreviousPage-prop"/>
+            <keyword name="canGoToPreviousPageChanged" id="QPdfPageNavigation::canGoToPreviousPageChanged" ref="qpdfpagenavigation.html#canGoToPreviousPage-prop"/>
+            <keyword name="close" id="QPdfDocument::close" ref="qpdfdocument.html#close"/>
+            <keyword name="copyToClipboard" id="PdfSelection::copyToClipboard" ref="qml-qtquick-pdf-pdfselection.html#copyToClipboard-method"/>
+            <keyword name="copyToClipboard" id="QPdfSelection::copyToClipboard" ref="qpdfselection.html#copyToClipboard"/>
+            <keyword name="creationDate" id="PdfDocument::creationDate" ref="qml-qtquick-pdf-pdfdocument.html#creationDate-prop"/>
+            <keyword name="creator" id="PdfDocument::creator" ref="qml-qtquick-pdf-pdfdocument.html#creator-prop"/>
+            <keyword name="currentLocation" id="PdfNavigationStack::currentLocation" ref="qml-qtquick-pdf-pdfnavigationstack.html#currentLocation-prop"/>
+            <keyword name="currentPage" id="PdfNavigationStack::currentPage" ref="qml-qtquick-pdf-pdfnavigationstack.html#currentPage-prop"/>
+            <keyword name="currentPage" id="PdfSearchModel::currentPage" ref="qml-qtquick-pdf-pdfsearchmodel.html#currentPage-prop"/>
+            <keyword name="currentPage" id="QPdfPageNavigation::currentPage" ref="qpdfpagenavigation.html#currentPage"/>
+            <keyword name="currentPage" id="QPdfPageNavigation::currentPage" ref="qpdfpagenavigation.html#currentPage-prop"/>
+            <keyword name="currentPageBoundingPolygons" id="PdfSearchModel::currentPageBoundingPolygons" ref="qml-qtquick-pdf-pdfsearchmodel.html#currentPageBoundingPolygons-prop"/>
+            <keyword name="currentPageChanged" id="QPdfPageNavigation::currentPageChanged" ref="qpdfpagenavigation.html#currentPage-prop"/>
+            <keyword name="currentResult" id="PdfSearchModel::currentResult" ref="qml-qtquick-pdf-pdfsearchmodel.html#currentResult-prop"/>
+            <keyword name="currentResultBoundingPolygons" id="PdfSearchModel::currentResultBoundingPolygons" ref="qml-qtquick-pdf-pdfsearchmodel.html#currentResultBoundingPolygons-prop"/>
+            <keyword name="currentResultBoundingRect" id="PdfSearchModel::currentResultBoundingRect" ref="qml-qtquick-pdf-pdfsearchmodel.html#currentResultBoundingRect-prop"/>
+            <keyword name="currentZoom" id="PdfNavigationStack::currentZoom" ref="qml-qtquick-pdf-pdfnavigationstack.html#currentZoom-prop"/>
+            <keyword name="document" id="PdfLinkModel::document" ref="qml-qtquick-pdf-pdflinkmodel.html#document-prop"/>
+            <keyword name="document" id="QPdfPageNavigation::document" ref="qpdfpagenavigation.html#document"/>
+            <keyword name="document" id="QPdfPageNavigation::document" ref="qpdfpagenavigation.html#document-prop"/>
+            <keyword name="document" id="QPdfPageRenderer::document" ref="qpdfpagerenderer.html#document"/>
+            <keyword name="document" id="QPdfPageRenderer::document" ref="qpdfpagerenderer.html#document-prop"/>
+            <keyword name="documentChanged" id="QPdfPageNavigation::documentChanged" ref="qpdfpagenavigation.html#document-prop"/>
+            <keyword name="documentChanged" id="QPdfPageRenderer::documentChanged" ref="qpdfpagerenderer.html#document-prop"/>
+            <keyword name="endIndex" id="QPdfSelection::endIndex" ref="qpdfselection.html#endIndex-prop"/>
+            <keyword name="error" id="PdfDocument::error" ref="qml-qtquick-pdf-pdfdocument.html#error-prop"/>
+            <keyword name="forward" id="PdfNavigationStack::forward" ref="qml-qtquick-pdf-pdfnavigationstack.html#forward-method"/>
+            <keyword name="fromPoint" id="PdfSelection::fromPoint" ref="qml-qtquick-pdf-pdfselection.html#fromPoint-prop"/>
+            <keyword name="geometry" id="PdfSelection::geometry" ref="qml-qtquick-pdf-pdfselection.html#geometry-prop"/>
+            <keyword name="getAllText" id="QPdfDocument::getAllText" ref="qpdfdocument.html#getAllText"/>
+            <keyword name="getSelection" id="QPdfDocument::getSelection" ref="qpdfdocument.html#getSelection"/>
+            <keyword name="getSelectionAtIndex" id="QPdfDocument::getSelectionAtIndex" ref="qpdfdocument.html#getSelectionAtIndex"/>
+            <keyword name="goToNextPage" id="QPdfPageNavigation::goToNextPage" ref="qpdfpagenavigation.html#goToNextPage"/>
+            <keyword name="goToPreviousPage" id="QPdfPageNavigation::goToPreviousPage" ref="qpdfpagenavigation.html#goToPreviousPage"/>
+            <keyword name="hold" id="PdfSelection::hold" ref="qml-qtquick-pdf-pdfselection.html#hold-prop"/>
+            <keyword name="isValid" id="QPdfDestination::isValid" ref="qpdfdestination.html#valid-prop"/>
+            <keyword name="isValid" id="QPdfSelection::isValid" ref="qpdfselection.html#valid-prop"/>
+            <keyword name="jumped" id="PdfNavigationStack::jumped" ref="qml-qtquick-pdf-pdfnavigationstack.html#jumped-signal"/>
+            <keyword name="keywords" id="PdfDocument::keywords" ref="qml-qtquick-pdf-pdfdocument.html#keywords-prop"/>
+            <keyword name="location" id="QPdfDestination::location" ref="qpdfdestination.html#location-prop"/>
+            <keyword name="location" id="QPdfDestination::location" ref="qpdfdestination.html#location-prop"/>
+            <keyword name="maxPageHeight" id="PdfDocument::maxPageHeight" ref="qml-qtquick-pdf-pdfdocument.html#maxPageHeight-prop"/>
+            <keyword name="maxPageWidth" id="PdfDocument::maxPageWidth" ref="qml-qtquick-pdf-pdfdocument.html#maxPageWidth-prop"/>
+            <keyword name="metaData" id="QPdfDocument::metaData" ref="qpdfdocument.html#metaData"/>
+            <keyword name="modificationDate" id="PdfDocument::modificationDate" ref="qml-qtquick-pdf-pdfdocument.html#modificationDate-prop"/>
+            <keyword name="operator!=" id="operator!=" ref="qpdfdocumentrenderoptions.html#operator-not-eq"/>
+            <keyword name="operator==" id="operator==" ref="qpdfdocumentrenderoptions.html#operator-eq-eq"/>
+            <keyword name="page" id="PdfLinkModel::page" ref="qml-qtquick-pdf-pdflinkmodel.html#page-prop"/>
+            <keyword name="page" id="PdfSelection::page" ref="qml-qtquick-pdf-pdfselection.html#page-prop"/>
+            <keyword name="page" id="QPdfDestination::page" ref="qpdfdestination.html#page-prop"/>
+            <keyword name="page" id="QPdfDestination::page" ref="qpdfdestination.html#page-prop"/>
+            <keyword name="pageCount" id="PdfDocument::pageCount" ref="qml-qtquick-pdf-pdfdocument.html#pageCount-prop"/>
+            <keyword name="pageCount" id="QPdfDocument::pageCount" ref="qpdfdocument.html#pageCount"/>
+            <keyword name="pageCount" id="QPdfPageNavigation::pageCount" ref="qpdfpagenavigation.html#pageCount"/>
+            <keyword name="pageCount" id="QPdfPageNavigation::pageCount" ref="qpdfpagenavigation.html#pageCount-prop"/>
+            <keyword name="pageCountChanged" id="QPdfDocument::pageCountChanged" ref="qpdfdocument.html#pageCount-prop"/>
+            <keyword name="pageCountChanged" id="QPdfPageNavigation::pageCountChanged" ref="qpdfpagenavigation.html#pageCount-prop"/>
+            <keyword name="pagePointSize" id="PdfDocument::pagePointSize" ref="qml-qtquick-pdf-pdfdocument.html#pagePointSize-method"/>
+            <keyword name="password" id="PdfDocument::password" ref="qml-qtquick-pdf-pdfdocument.html#password-prop"/>
+            <keyword name="password" id="QPdfDocument::password" ref="qpdfdocument.html#password-prop"/>
+            <keyword name="passwordChanged" id="QPdfDocument::passwordChanged" ref="qpdfdocument.html#password-prop"/>
+            <keyword name="passwordRequired" id="PdfDocument::passwordRequired" ref="qml-qtquick-pdf-pdfdocument.html#passwordRequired-signal"/>
+            <keyword name="producer" id="PdfDocument::producer" ref="qml-qtquick-pdf-pdfdocument.html#producer-prop"/>
+            <keyword name="push" id="PdfNavigationStack::push" ref="qml-qtquick-pdf-pdfnavigationstack.html#push-method"/>
+            <keyword name="render" id="QPdfDocument::render" ref="qpdfdocument.html#render"/>
+            <keyword name="renderFlags" id="QPdfDocumentRenderOptions::renderFlags" ref="qpdfdocumentrenderoptions.html#renderFlags"/>
+            <keyword name="renderMode" id="QPdfPageRenderer::renderMode" ref="qpdfpagerenderer.html#renderMode"/>
+            <keyword name="renderMode" id="QPdfPageRenderer::renderMode" ref="qpdfpagerenderer.html#renderMode-prop"/>
+            <keyword name="renderModeChanged" id="QPdfPageRenderer::renderModeChanged" ref="qpdfpagerenderer.html#renderMode-prop"/>
+            <keyword name="renderScale" id="PdfSelection::renderScale" ref="qml-qtquick-pdf-pdfselection.html#renderScale-prop"/>
+            <keyword name="requestPage" id="QPdfPageRenderer::requestPage" ref="qpdfpagerenderer.html#requestPage"/>
+            <keyword name="rotation" id="QPdfDocumentRenderOptions::rotation" ref="qpdfdocumentrenderoptions.html#rotation"/>
+            <keyword name="scaledClipRect" id="QPdfDocumentRenderOptions::scaledClipRect" ref="qpdfdocumentrenderoptions.html#scaledClipRect"/>
+            <keyword name="scaledSize" id="QPdfDocumentRenderOptions::scaledSize" ref="qpdfdocumentrenderoptions.html#scaledSize"/>
+            <keyword name="searchString" id="PdfSearchModel::searchString" ref="qml-qtquick-pdf-pdfsearchmodel.html#searchString-prop"/>
+            <keyword name="setCurrentPage" id="QPdfPageNavigation::setCurrentPage" ref="qpdfpagenavigation.html#setCurrentPage"/>
+            <keyword name="setDocument" id="QPdfPageNavigation::setDocument" ref="qpdfpagenavigation.html#setDocument"/>
+            <keyword name="setDocument" id="QPdfPageRenderer::setDocument" ref="qpdfpagerenderer.html#setDocument"/>
+            <keyword name="setPassword" id="QPdfDocument::setPassword" ref="qpdfdocument.html#password-prop"/>
+            <keyword name="setRenderFlags" id="QPdfDocumentRenderOptions::setRenderFlags" ref="qpdfdocumentrenderoptions.html#setRenderFlags"/>
+            <keyword name="setRenderMode" id="QPdfPageRenderer::setRenderMode" ref="qpdfpagerenderer.html#setRenderMode"/>
+            <keyword name="setRotation" id="QPdfDocumentRenderOptions::setRotation" ref="qpdfdocumentrenderoptions.html#setRotation"/>
+            <keyword name="source" id="PdfDocument::source" ref="qml-qtquick-pdf-pdfdocument.html#source-prop"/>
+            <keyword name="startIndex" id="QPdfSelection::startIndex" ref="qpdfselection.html#startIndex-prop"/>
+            <keyword name="status" id="PdfDocument::status" ref="qml-qtquick-pdf-pdfdocument.html#status-prop"/>
+            <keyword name="status" id="QPdfDocument::status" ref="qpdfdocument.html#status"/>
+            <keyword name="statusChanged" id="QPdfDocument::statusChanged" ref="qpdfdocument.html#status-prop"/>
+            <keyword name="string" id="PdfSelection::string" ref="qml-qtquick-pdf-pdfselection.html#string-prop"/>
+            <keyword name="subject" id="PdfDocument::subject" ref="qml-qtquick-pdf-pdfdocument.html#subject-prop"/>
+            <keyword name="text" id="QPdfSelection::text" ref="qpdfselection.html#text-prop"/>
+            <keyword name="text" id="QPdfSelection::text" ref="qpdfselection.html#text-prop"/>
+            <keyword name="title" id="PdfDocument::title" ref="qml-qtquick-pdf-pdfdocument.html#title-prop"/>
+            <keyword name="toPoint" id="PdfSelection::toPoint" ref="qml-qtquick-pdf-pdfselection.html#toPoint-prop"/>
+            <keyword name="update" id="PdfNavigationStack::update" ref="qml-qtquick-pdf-pdfnavigationstack.html#update-method"/>
+            <keyword name="valid" id="QPdfDestination::valid" ref="qpdfdestination.html#valid-prop"/>
+            <keyword name="valid" id="QPdfSelection::valid" ref="qpdfselection.html#valid-prop"/>
+            <keyword name="zoom" id="QPdfDestination::zoom" ref="qpdfdestination.html#zoom-prop"/>
+            <keyword name="zoom" id="QPdfDestination::zoom" ref="qpdfdestination.html#zoom-prop"/>
+            <keyword name="~QPdfDocument" id="QPdfDocument::~QPdfDocument" ref="qpdfdocument.html#dtor.QPdfDocument"/>
+            <keyword name="~QPdfPageNavigation" id="QPdfPageNavigation::~QPdfPageNavigation" ref="qpdfpagenavigation.html#dtor.QPdfPageNavigation"/>
+            <keyword name="~QPdfPageRenderer" id="QPdfPageRenderer::~QPdfPageRenderer" ref="qpdfpagerenderer.html#dtor.QPdfPageRenderer"/>
+        </keywords>
+        <files>
+            <file>images/arrow_bc.png</file>
+            <file>images/bgrContent.png</file>
+            <file>images/btn_next.png</file>
+            <file>images/btn_prev.png</file>
+            <file>images/bullet_dn.png</file>
+            <file>images/bullet_sq.png</file>
+            <file>images/home.png</file>
+            <file>images/ico_note.png</file>
+            <file>images/ico_note_attention.png</file>
+            <file>images/ico_out.png</file>
+            <file>images/logo.png</file>
+            <file>images/pdfviewer.png</file>
+            <file>images/used-in-examples/pdfviewer/images/busy.png</file>
+            <file>images/used-in-examples/pdfviewer/images/fileopen.png</file>
+            <file>images/used-in-examples/pdfviewer/images/go-next-24.png</file>
+            <file>images/used-in-examples/pdfviewer/images/go-previous-24.png</file>
+            <file>images/used-in-examples/pdfviewer/images/zoom-in-24.png</file>
+            <file>images/used-in-examples/pdfviewer/images/zoom-in-32.png</file>
+            <file>images/used-in-examples/pdfviewer/images/zoom-out-24.png</file>
+            <file>images/used-in-examples/pdfviewer/images/zoom-out-32.png</file>
+            <file>qml-qtquick-pdf-pdfdocument-members.html</file>
+            <file>qml-qtquick-pdf-pdfdocument.html</file>
+            <file>qml-qtquick-pdf-pdflinkmodel-members.html</file>
+            <file>qml-qtquick-pdf-pdflinkmodel.html</file>
+            <file>qml-qtquick-pdf-pdfnavigationstack-members.html</file>
+            <file>qml-qtquick-pdf-pdfnavigationstack.html</file>
+            <file>qml-qtquick-pdf-pdfsearchmodel-members.html</file>
+            <file>qml-qtquick-pdf-pdfsearchmodel.html</file>
+            <file>qml-qtquick-pdf-pdfselection-members.html</file>
+            <file>qml-qtquick-pdf-pdfselection.html</file>
+            <file>qpdf.html</file>
+            <file>qpdfdestination-members.html</file>
+            <file>qpdfdestination.html</file>
+            <file>qpdfdocument-members.html</file>
+            <file>qpdfdocument.html</file>
+            <file>qpdfdocumentrenderoptions-members.html</file>
+            <file>qpdfdocumentrenderoptions.html</file>
+            <file>qpdfpagenavigation-members.html</file>
+            <file>qpdfpagenavigation.html</file>
+            <file>qpdfpagerenderer-members.html</file>
+            <file>qpdfpagerenderer.html</file>
+            <file>qpdfselection-members.html</file>
+            <file>qpdfselection.html</file>
+            <file>qtpdf-examples.html</file>
+            <file>qtpdf-index.html</file>
+            <file>qtpdf-module.html</file>
+            <file>qtpdf-pdfviewer-example.html</file>
+            <file>qtpdf-pdfviewer-main-cpp.html</file>
+            <file>qtpdf-pdfviewer-mainwindow-cpp.html</file>
+            <file>qtpdf-pdfviewer-mainwindow-h.html</file>
+            <file>qtpdf-pdfviewer-mainwindow-ui.html</file>
+            <file>qtpdf-pdfviewer-pageselector-cpp.html</file>
+            <file>qtpdf-pdfviewer-pageselector-h.html</file>
+            <file>qtpdf-pdfviewer-pdfviewer-pro.html</file>
+            <file>qtpdf-pdfviewer-resources-qrc.html</file>
+            <file>qtpdf-pdfviewer-zoomselector-cpp.html</file>
+            <file>qtpdf-pdfviewer-zoomselector-h.html</file>
+            <file>qtquick-pdf-qmlmodule.html</file>
+            <file>style/offline-simple.css</file>
+            <file>style/offline.css</file>
+        </files>
+    </filterSection>
+</QtHelpProject>

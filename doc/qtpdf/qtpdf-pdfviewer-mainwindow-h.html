@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- pdfviewer.qdoc -->
+  <title>PDF Viewer Example | Qt PDF 5.15.2</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+    <div class="main">
+    <div class="main-rounded">
+        <div class="navigationbar">
+        <ul>
+<li><a href="../qtdoc/index.html">Qt 5.15</a></li>
+<li><a href="qtpdf-index.html">Qt PDF</a></li>
+<li>PDF Viewer Example</li>
+<li id="buildversion"><a href="qtpdf-index.html">Qt 5.15.2 Reference Documentation</a></li>
+    </ul>
+    </div>
+</div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<h1 class="title">PDF Viewer Example</h1>
+<span class="subtitle"></span>
+<pre class="cpp">
+ <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2016 The Qt Company Ltd.
+ ** Contact: http://www.qt.io/licensing/
+ **
+ ** This file is part of the QtPDF module of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL3$
+ ** Commercial License Usage
+ ** Licensees holding valid commercial Qt licenses may use this file in
+ ** accordance with the commercial license agreement provided with the
+ ** Software or, alternatively, in accordance with the terms contained in
+ ** a written agreement between you and The Qt Company. For licensing terms
+ ** and conditions see http://www.qt.io/terms-conditions. For further
+ ** information use the contact form at http://www.qt.io/contact-us.
+ **
+ ** GNU Lesser General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU Lesser
+ ** General Public License version 3 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.LGPLv3 included in the
+ ** packaging of this file. Please review the following information to
+ ** ensure the GNU Lesser General Public License version 3 requirements
+ ** will be met: https://www.gnu.org/licenses/lgpl.html.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU
+ ** General Public License version 2.0 or later as published by the Free
+ ** Software Foundation and appearing in the file LICENSE.GPL included in
+ ** the packaging of this file. Please review the following information to
+ ** ensure the GNU General Public License version 2.0 requirements will be
+ ** met: http://www.gnu.org/licenses/gpl-2.0.html.
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#ifndef MAINWINDOW_H</span>
+ <span class="preprocessor">#define MAINWINDOW_H</span>
+
+ <span class="preprocessor">#include &lt;QLoggingCategory&gt;</span>
+ <span class="preprocessor">#include &lt;QMainWindow&gt;</span>
+
+ Q_DECLARE_LOGGING_CATEGORY(lcExample)
+
+ <span class="keyword">namespace</span> Ui {
+ <span class="keyword">class</span> MainWindow;
+ }
+
+ <span class="keyword">class</span> <span class="type"><a href="qpdfdocument.html">QPdfDocument</a></span>;
+ <span class="keyword">class</span> <span class="type">QPdfView</span>;
+
+ <span class="keyword">class</span> PageSelector;
+ <span class="keyword">class</span> ZoomSelector;
+
+ <span class="keyword">class</span> MainWindow : <span class="keyword">public</span> <span class="type"><a href="../qtwidgets/qmainwindow.html">QMainWindow</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     <span class="keyword">explicit</span> MainWindow(<span class="type"><a href="../qtwidgets/qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> nullptr);
+     <span class="operator">~</span>MainWindow();
+
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> open(<span class="keyword">const</span> <span class="type"><a href="../qtcore/qurl.html">QUrl</a></span> <span class="operator">&amp;</span>docLocation);
+
+ <span class="keyword">private</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> bookmarkSelected(<span class="keyword">const</span> <span class="type"><a href="../qtcore/qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index);
+
+     <span class="comment">// action handlers</span>
+     <span class="type">void</span> on_actionOpen_triggered();
+     <span class="type">void</span> on_actionQuit_triggered();
+     <span class="type">void</span> on_actionAbout_triggered();
+     <span class="type">void</span> on_actionAbout_Qt_triggered();
+     <span class="type">void</span> on_actionZoom_In_triggered();
+     <span class="type">void</span> on_actionZoom_Out_triggered();
+     <span class="type">void</span> on_actionPrevious_Page_triggered();
+     <span class="type">void</span> on_actionNext_Page_triggered();
+     <span class="type">void</span> on_actionContinuous_triggered();
+
+ <span class="keyword">private</span>:
+     Ui<span class="operator">::</span>MainWindow <span class="operator">*</span>ui;
+     ZoomSelector <span class="operator">*</span>m_zoomSelector;
+     PageSelector <span class="operator">*</span>m_pageSelector;
+
+     <span class="type"><a href="qpdfdocument.html">QPdfDocument</a></span> <span class="operator">*</span>m_document;
+ };
+
+ <span class="preprocessor">#endif // MAINWINDOW_H</span>
+</pre>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- pdfviewer.qdoc -->
+  <title>PDF Viewer Example | Qt PDF 5.15.2</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+    <div class="main">
+    <div class="main-rounded">
+        <div class="navigationbar">
+        <ul>
+<li><a href="../qtdoc/index.html">Qt 5.15</a></li>
+<li><a href="qtpdf-index.html">Qt PDF</a></li>
+<li>PDF Viewer Example</li>
+<li id="buildversion"><a href="qtpdf-index.html">Qt 5.15.2 Reference Documentation</a></li>
+    </ul>
+    </div>
+</div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<h1 class="title">PDF Viewer Example</h1>
+<span class="subtitle"></span>
+<pre class="cpp">
+ <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2017 Klaralvdalens Datakonsult AB (KDAB).
+ ** Contact: http://www.qt.io/licensing/
+ **
+ ** This file is part of the QtPDF module of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL3$
+ ** Commercial License Usage
+ ** Licensees holding valid commercial Qt licenses may use this file in
+ ** accordance with the commercial license agreement provided with the
+ ** Software or, alternatively, in accordance with the terms contained in
+ ** a written agreement between you and The Qt Company. For licensing terms
+ ** and conditions see http://www.qt.io/terms-conditions. For further
+ ** information use the contact form at http://www.qt.io/contact-us.
+ **
+ ** GNU Lesser General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU Lesser
+ ** General Public License version 3 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.LGPLv3 included in the
+ ** packaging of this file. Please review the following information to
+ ** ensure the GNU Lesser General Public License version 3 requirements
+ ** will be met: https://www.gnu.org/licenses/lgpl.html.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU
+ ** General Public License version 2.0 or later as published by the Free
+ ** Software Foundation and appearing in the file LICENSE.GPL included in
+ ** the packaging of this file. Please review the following information to
+ ** ensure the GNU General Public License version 2.0 requirements will be
+ ** met: http://www.gnu.org/licenses/gpl-2.0.html.
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &quot;pageselector.h&quot;</span>
+
+ <span class="preprocessor">#include &lt;QHBoxLayout&gt;</span>
+ <span class="preprocessor">#include &lt;QLabel&gt;</span>
+ <span class="preprocessor">#include &lt;QLineEdit&gt;</span>
+ <span class="preprocessor">#include &lt;QPdfPageNavigation&gt;</span>
+ <span class="preprocessor">#include &lt;QToolButton&gt;</span>
+
+ PageSelector<span class="operator">::</span>PageSelector(<span class="type"><a href="../qtwidgets/qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="../qtwidgets/qwidget.html">QWidget</a></span>(parent)
+     <span class="operator">,</span> m_pageNavigation(nullptr)
+ {
+     <span class="type"><a href="../qtwidgets/qhboxlayout.html">QHBoxLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="../qtwidgets/qhboxlayout.html">QHBoxLayout</a></span>(<span class="keyword">this</span>);
+
+     m_previousPageButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="../qtwidgets/qtoolbutton.html">QToolButton</a></span>(<span class="keyword">this</span>);
+     m_previousPageButton<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="string">&quot;&lt;&quot;</span>);
+     m_previousPageButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+
+     m_pageNumberEdit <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="../qtwidgets/qlineedit.html">QLineEdit</a></span>(<span class="keyword">this</span>);
+     m_pageNumberEdit<span class="operator">-</span><span class="operator">&gt;</span>setAlignment(<span class="type"><a href="../qtcore/qt.html">Qt</a></span><span class="operator">::</span>AlignRight);
+
+     m_pageCountLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="../qtwidgets/qlabel.html">QLabel</a></span>(<span class="keyword">this</span>);
+     m_pageCountLabel<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="string">&quot;0&quot;</span>);
+
+     m_nextPageButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="../qtwidgets/qtoolbutton.html">QToolButton</a></span>(<span class="keyword">this</span>);
+     m_nextPageButton<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="string">&quot;&gt;&quot;</span>);
+     m_nextPageButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_previousPageButton);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_pageNumberEdit);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_pageCountLabel);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(m_nextPageButton);
+ }
+
+ <span class="type">void</span> PageSelector<span class="operator">::</span>setPageNavigation(<span class="type"><a href="qpdfpagenavigation.html">QPdfPageNavigation</a></span> <span class="operator">*</span>pageNavigation)
+ {
+     m_pageNavigation <span class="operator">=</span> pageNavigation;
+
+     connect(m_previousPageButton<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="../qtwidgets/qtoolbutton.html">QToolButton</a></span><span class="operator">::</span>clicked<span class="operator">,</span> m_pageNavigation<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="qpdfpagenavigation.html">QPdfPageNavigation</a></span><span class="operator">::</span>goToPreviousPage);
+     connect(m_pageNavigation<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="qpdfpagenavigation.html">QPdfPageNavigation</a></span><span class="operator">::</span>canGoToPreviousPageChanged<span class="operator">,</span> m_previousPageButton<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="../qtwidgets/qtoolbutton.html">QToolButton</a></span><span class="operator">::</span>setEnabled);
+
+     connect(m_pageNavigation<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="qpdfpagenavigation.html">QPdfPageNavigation</a></span><span class="operator">::</span>currentPageChanged<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> <span class="operator">&amp;</span>PageSelector<span class="operator">::</span>onCurrentPageChanged);
+     connect(m_pageNavigation<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="qpdfpagenavigation.html">QPdfPageNavigation</a></span><span class="operator">::</span>pageCountChanged<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> <span class="operator">[</span><span class="keyword">this</span><span class="operator">]</span>(<span class="type">int</span> pageCount){ m_pageCountLabel<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="type"><a href="../qtcore/qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot;/ %1&quot;</span>)<span class="operator">.</span>arg(pageCount)); });
+
+     connect(m_pageNumberEdit<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="../qtwidgets/qlineedit.html">QLineEdit</a></span><span class="operator">::</span>editingFinished<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> <span class="operator">&amp;</span>PageSelector<span class="operator">::</span>pageNumberEdited);
+
+     connect(m_nextPageButton<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="../qtwidgets/qtoolbutton.html">QToolButton</a></span><span class="operator">::</span>clicked<span class="operator">,</span> m_pageNavigation<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="qpdfpagenavigation.html">QPdfPageNavigation</a></span><span class="operator">::</span>goToNextPage);
+     connect(m_pageNavigation<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="qpdfpagenavigation.html">QPdfPageNavigation</a></span><span class="operator">::</span>canGoToNextPageChanged<span class="operator">,</span> m_nextPageButton<span class="operator">,</span> <span class="operator">&amp;</span><span class="type"><a href="../qtwidgets/qtoolbutton.html">QToolButton</a></span><span class="operator">::</span>setEnabled);
+
+     onCurrentPageChanged(m_pageNavigation<span class="operator">-</span><span class="operator">&gt;</span>currentPage());
+ }
+
+ <span class="type">void</span> PageSelector<span class="operator">::</span>onCurrentPageChanged(<span class="type">int</span> page)
+ {
+     <span class="keyword">if</span> (m_pageNavigation<span class="operator">-</span><span class="operator">&gt;</span>pageCount() <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>)
+         m_pageNumberEdit<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="type"><a href="../qtcore/qstring.html">QString</a></span><span class="operator">::</span>number(<span class="number">0</span>));
+     <span class="keyword">else</span>
+         m_pageNumberEdit<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="type"><a href="../qtcore/qstring.html">QString</a></span><span class="operator">::</span>number(page <span class="operator">+</span> <span class="number">1</span>));
+ }
+
+ <span class="type">void</span> PageSelector<span class="operator">::</span>pageNumberEdited()
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>m_pageNavigation)
+         <span class="keyword">return</span>;
+
+     <span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> text <span class="operator">=</span> m_pageNumberEdit<span class="operator">-</span><span class="operator">&gt;</span>text();
+
+     bool ok <span class="operator">=</span> <span class="keyword">false</span>;
+     <span class="keyword">const</span> <span class="type">int</span> pageNumber <span class="operator">=</span> text<span class="operator">.</span>toInt(<span class="operator">&amp;</span>ok);
+
+     <span class="keyword">if</span> (<span class="operator">!</span>ok)
+         onCurrentPageChanged(m_pageNavigation<span class="operator">-</span><span class="operator">&gt;</span>currentPage());
+     <span class="keyword">else</span>
+         m_pageNavigation<span class="operator">-</span><span class="operator">&gt;</span>setCurrentPage(<a href="../qtcore/qtglobal.html#qBound">qBound</a>(<span class="number">0</span><span class="operator">,</span> pageNumber <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span> m_pageNavigation<span class="operator">-</span><span class="operator">&gt;</span>pageCount() <span class="operator">-</span> <span class="number">1</span>));
+ }
+</pre>

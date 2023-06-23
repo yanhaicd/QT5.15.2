@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- qpdfdocumentrenderoptions.qdoc -->
+  <title>QPdfDocumentRenderOptions Class | Qt PDF 5.15.2</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+    <div class="main">
+    <div class="main-rounded">
+        <div class="navigationbar">
+        <ul>
+<li><a href="../qtdoc/index.html">Qt 5.15</a></li>
+<li><a href="qtpdf-index.html">Qt PDF</a></li>
+<li><a href="qtpdf-module.html">C++ Classes</a></li>
+<li>QPdfDocumentRenderOptions</li>
+<li id="buildversion"><a href="qtpdf-index.html">Qt 5.15.2 Reference Documentation</a></li>
+    </ul>
+    </div>
+</div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#related-non-members">Related Non-Members</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">QPdfDocumentRenderOptions Class</h1>
+<!-- $$$QPdfDocumentRenderOptions-brief -->
+<p>The QPdfDocumentRenderOptions class holds the options to render a page from a PDF document. <a href="#details">More...</a></p>
+<!-- @@@QPdfDocumentRenderOptions -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign">  <span class="preprocessor">#include &lt;QPdfDocumentRenderOptions&gt;</span>
+</td></tr><tr><td class="memItemLeft rightAlign topAlign"> Since:</td><td class="memItemRight bottomAlign"> Qt 5.10</td></tr></table></div><p>This class was introduced in Qt 5.10.</p>
+<ul>
+<li><a href="qpdfdocumentrenderoptions-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2 id="public-functions">Public Functions</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qpdfdocumentrenderoptions.html#QPdfDocumentRenderOptions">QPdfDocumentRenderOptions</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QPdf::RenderFlags </td><td class="memItemRight bottomAlign"><b><a href="qpdfdocumentrenderoptions.html#renderFlags">renderFlags</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QPdf::Rotation </td><td class="memItemRight bottomAlign"><b><a href="qpdfdocumentrenderoptions.html#rotation">rotation</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QRect </td><td class="memItemRight bottomAlign"><b><a href="qpdfdocumentrenderoptions.html#scaledClipRect">scaledClipRect</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QSize </td><td class="memItemRight bottomAlign"><b><a href="qpdfdocumentrenderoptions.html#scaledSize">scaledSize</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpdfdocumentrenderoptions.html#setRenderFlags">setRenderFlags</a></b>(QPdf::RenderFlags <i>flags</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpdfdocumentrenderoptions.html#setRotation">setRotation</a></b>(QPdf::Rotation <i>rotation</i>)</td></tr>
+</table></div>
+<a name="related-non-members"></a>
+<h2 id="related-non-members">Related Non-Members</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qpdfdocumentrenderoptions.html#operator-not-eq">operator!=</a></b>(QPdfDocumentRenderOptions <i>lhs</i>, QPdfDocumentRenderOptions <i>rhs</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qpdfdocumentrenderoptions.html#operator-eq-eq">operator==</a></b>(QPdfDocumentRenderOptions <i>lhs</i>, QPdfDocumentRenderOptions <i>rhs</i>)</td></tr>
+</table></div>
+<a name="details"></a>
+<!-- $$$QPdfDocumentRenderOptions-description -->
+<div class="descr">
+<h2 id="details">Detailed Description</h2>
+</div>
+<p><b>See also </b><a href="qpdfdocument.html">QPdfDocument</a>.</p>
+<!-- @@@QPdfDocumentRenderOptions -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QPdfDocumentRenderOptions[overload1]$$$QPdfDocumentRenderOptions -->
+<h3 class="fn" id="QPdfDocumentRenderOptions"><a name="QPdfDocumentRenderOptions"></a>QPdfDocumentRenderOptions::<span class="name">QPdfDocumentRenderOptions</span>()</h3>
+<p>Constructs a QPdfDocumentRenderOptions object.</p>
+<!-- @@@QPdfDocumentRenderOptions -->
+<!-- $$$renderFlags[overload1]$$$renderFlags -->
+<h3 class="fn" id="renderFlags"><a name="renderFlags"></a><span class="type"><a href="qpdf.html#RenderFlag-enum">QPdf::RenderFlags</a></span> QPdfDocumentRenderOptions::<span class="name">renderFlags</span>() const</h3>
+<p>Returns the special flags used for rendering a page from a PDF document.</p>
+<p><b>See also </b><a href="qpdfdocumentrenderoptions.html#setRenderFlags">setRenderFlags</a>().</p>
+<!-- @@@renderFlags -->
+<!-- $$$rotation[overload1]$$$rotation -->
+<h3 class="fn" id="rotation"><a name="rotation"></a><span class="type"><a href="qpdf.html#Rotation-enum">QPdf::Rotation</a></span> QPdfDocumentRenderOptions::<span class="name">rotation</span>() const</h3>
+<p>Returns the rotation used for rendering a page from a PDF document.</p>
+<p><b>See also </b><a href="qpdfdocumentrenderoptions.html#setRotation">setRotation</a>().</p>
+<!-- @@@rotation -->
+<!-- $$$scaledClipRect[overload1]$$$scaledClipRect -->
+<h3 class="fn" id="scaledClipRect"><a name="scaledClipRect"></a><span class="type"><a href="../qtcore/qrect.html">QRect</a></span> QPdfDocumentRenderOptions::<span class="name">scaledClipRect</span>() const</h3>
+<p>Returns the rectangular region to be clipped from the page after having been scaled to <a href="qpdfdocumentrenderoptions.html#scaledSize">scaledSize</a>().</p>
+<p><b>See also </b>setScaledClipRect().</p>
+<!-- @@@scaledClipRect -->
+<!-- $$$scaledSize[overload1]$$$scaledSize -->
+<h3 class="fn" id="scaledSize"><a name="scaledSize"></a><span class="type"><a href="../qtcore/qsize.html">QSize</a></span> QPdfDocumentRenderOptions::<span class="name">scaledSize</span>() const</h3>
+<p>Returns the <i>size</i> of the page to be rendered, in pixels.</p>
+<p><b>See also </b>setScaledSize().</p>
+<!-- @@@scaledSize -->
+<!-- $$$setRenderFlags[overload1]$$$setRenderFlagsQPdf::RenderFlags -->
+<h3 class="fn" id="setRenderFlags"><a name="setRenderFlags"></a><span class="type">void</span> QPdfDocumentRenderOptions::<span class="name">setRenderFlags</span>(<span class="type"><a href="qpdf.html#RenderFlag-enum">QPdf::RenderFlags</a></span> <i>flags</i>)</h3>
+<p>Sets the special <i>flags</i> used for rendering a page from a PDF document.</p>
+<p><b>See also </b><a href="qpdfdocumentrenderoptions.html#renderFlags">renderFlags</a>().</p>
+<!-- @@@setRenderFlags -->
+<!-- $$$setRotation[overload1]$$$setRotationQPdf::Rotation -->
+<h3 class="fn" id="setRotation"><a name="setRotation"></a><span class="type">void</span> QPdfDocumentRenderOptions::<span class="name">setRotation</span>(<span class="type"><a href="qpdf.html#Rotation-enum">QPdf::Rotation</a></span> <i>rotation</i>)</h3>
+<p>Sets the <i>rotation</i> used for rendering a page from a PDF document.</p>
+<p><b>See also </b><a href="qpdfdocumentrenderoptions.html#rotation">rotation</a>().</p>
+<!-- @@@setRotation -->
+</div>
+<div class="relnonmem">
+<h2>Related Non-Members</h2>
+<!-- $$$operator!=[overload1]$$$operator!=QPdfDocumentRenderOptionsQPdfDocumentRenderOptions -->
+<h3 class="fn" id="operator-not-eq"><a name="operator-not-eq"></a><span class="type">bool</span> <span class="name">operator!=</span>(<span class="type"><a href="qpdfdocumentrenderoptions.html#QPdfDocumentRenderOptions">QPdfDocumentRenderOptions</a></span> <i>lhs</i>, <span class="type"><a href="qpdfdocumentrenderoptions.html#QPdfDocumentRenderOptions">QPdfDocumentRenderOptions</a></span> <i>rhs</i>)</h3>
+<p>Returns <code>true</code> if the options <i>lhs</i> and <i>rhs</i> are different, otherwise returns <code>false</code>.</p>
+<!-- @@@operator!= -->
+<!-- $$$operator==[overload1]$$$operator==QPdfDocumentRenderOptionsQPdfDocumentRenderOptions -->
+<h3 class="fn" id="operator-eq-eq"><a name="operator-eq-eq"></a><span class="type">bool</span> <span class="name">operator==</span>(<span class="type"><a href="qpdfdocumentrenderoptions.html#QPdfDocumentRenderOptions">QPdfDocumentRenderOptions</a></span> <i>lhs</i>, <span class="type"><a href="qpdfdocumentrenderoptions.html#QPdfDocumentRenderOptions">QPdfDocumentRenderOptions</a></span> <i>rhs</i>)</h3>
+<p>Returns <code>true</code> if the options <i>lhs</i> and <i>rhs</i> are equal, otherwise returns <code>false</code>.</p>
+<!-- @@@operator== -->
+</div>
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2020 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

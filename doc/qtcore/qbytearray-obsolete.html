@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- qbytearray.cpp -->
+  <title>Obsolete Members for QByteArray | Qt Core 5.15.2</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+    <div class="main">
+    <div class="main-rounded">
+        <div class="navigationbar">
+        <ul>
+<li>Qt 5.15</li>
+<li><a href="qtcore-index.html">Qt Core</a></li>
+<li><a href="qtcore-module.html">C++ Classes</a></li>
+<li>QByteArray</li>
+<li id="buildversion"><a href="qtcore-index.html">Qt 5.15.2 Reference Documentation</a></li>
+    </ul>
+    </div>
+</div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Obsolete Members for QByteArray</h1>
+<p><b>The following members of class <a href="qbytearray.html">QByteArray</a> are obsolete.</b> They are provided to keep old source code working. We strongly advise against using them in new code.</p>
+<h2>Public Functions</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> <code>(obsolete) </code>QByteArray &amp;</td><td class="memItemRight bottomAlign"><b><a href="qbytearray-obsolete.html#append-5">append</a></b>(const QString &amp;<i>str</i>)</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> <code>(obsolete) </code>int </td><td class="memItemRight bottomAlign"><b><a href="qbytearray-obsolete.html#indexOf-3">indexOf</a></b>(const QString &amp;<i>str</i>, int <i>from</i> = 0) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> <code>(obsolete) </code>QByteArray &amp;</td><td class="memItemRight bottomAlign"><b><a href="qbytearray-obsolete.html#insert-5">insert</a></b>(int <i>i</i>, const QString &amp;<i>str</i>)</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> <code>(obsolete) </code>int </td><td class="memItemRight bottomAlign"><b><a href="qbytearray-obsolete.html#lastIndexOf-3">lastIndexOf</a></b>(const QString &amp;<i>str</i>, int <i>from</i> = -1) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> <code>(obsolete) </code>QByteArray &amp;</td><td class="memItemRight bottomAlign"><b><a href="qbytearray-obsolete.html#replace-11">replace</a></b>(const QString &amp;<i>before</i>, const char *<i>after</i>)</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> <code>(obsolete) </code>QByteArray &amp;</td><td class="memItemRight bottomAlign"><b><a href="qbytearray-obsolete.html#replace-12">replace</a></b>(char <i>before</i>, const QString &amp;<i>after</i>)</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> <code>(obsolete) </code>QByteArray &amp;</td><td class="memItemRight bottomAlign"><b><a href="qbytearray-obsolete.html#replace-13">replace</a></b>(const QString &amp;<i>before</i>, const QByteArray &amp;<i>after</i>)</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> <code>(obsolete) </code>QByteArray &amp;</td><td class="memItemRight bottomAlign"><b><a href="qbytearray-obsolete.html#operator-2b-eq-3">operator+=</a></b>(const QString &amp;<i>str</i>)</td></tr>
+</table></div>
+<h2>Member Function Documentation</h2>
+<!-- $$$ -->
+<div class="fngroup">
+<h3 class="fn fngroupitem" id="operator-const-char--2a"><a name="operator-const-char--2a"></a>const <span class="type">char</span> *QByteArray::<span class="name">operator const char *</span>() const</h3><h3 class="fn fngroupitem" id="operator-const-void--2a"><a name="operator-const-void--2a"></a>const <span class="type">void</span> *QByteArray::<span class="name">operator const void *</span>() const</h3></div>
+<p>This function is obsolete. It is provided to keep old source code working. We strongly advise against using it in new code.</p>
+<p>Use <a href="qbytearray.html#constData">constData</a>() instead.</p>
+<p>Returns a pointer to the data stored in the byte array. The pointer can be used to access the bytes that compose the array. The data is '\0'-terminated. The pointer remains valid as long as the array isn't reallocated or destroyed.</p>
+<p>This operator is mostly useful to pass a byte array to a function that accepts a <code>const char *</code>.</p>
+<p>You can disable this operator by defining <code>QT_NO_CAST_FROM_BYTEARRAY</code> when you compile your applications.</p>
+<p>Note: A <a href="qbytearray.html">QByteArray</a> can store any byte values including '\0's, but most functions that take <code>char *</code> arguments assume that the data ends at the first '\0' they encounter.</p>
+<p><b>See also </b><a href="qbytearray.html#constData">constData</a>().</p>
+<!-- @@@ -->
+<!-- $$$append$$$appendconstQString& -->
+<h3 class="fn" id="append-5"><a name="append-5"></a><span class="type"><a href="qbytearray.html#QByteArray">QByteArray</a></span> &amp;QByteArray::<span class="name">append</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>str</i>)</h3>
+<p>This function is obsolete. It is provided to keep old source code working. We strongly advise against using it in new code.</p>
+<p>This is an overloaded function.</p>
+<p>Appends the string <i>str</i> to this byte array. The Unicode data is converted into 8-bit characters using <a href="qstring.html#toUtf8">QString::toUtf8</a>().</p>
+<p>You can disable this function by defining <code>QT_NO_CAST_TO_ASCII</code> when you compile your applications. You then need to call <a href="qstring.html#toUtf8">QString::toUtf8</a>() (or <a href="qstring.html#toLatin1">QString::toLatin1</a>() or <a href="qstring.html#toLocal8Bit">QString::toLocal8Bit</a>()) explicitly if you want to convert the data to <code>const char *</code>.</p>
+<!-- @@@append -->
+<!-- $$$indexOf$$$indexOfconstQString&int -->
+<h3 class="fn" id="indexOf-3"><a name="indexOf-3"></a><span class="type">int</span> QByteArray::<span class="name">indexOf</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>str</i>, <span class="type">int</span> <i>from</i> = 0) const</h3>
+<p>This function is obsolete. It is provided to keep old source code working. We strongly advise against using it in new code.</p>
+<p>This is an overloaded function.</p>
+<p>Returns the index position of the first occurrence of the string <i>str</i> in the byte array, searching forward from index position <i>from</i>. Returns -1 if <i>str</i> could not be found.</p>
+<p>The Unicode data is converted into 8-bit characters using <a href="qstring.html#toUtf8">QString::toUtf8</a>().</p>
+<p>You can disable this function by defining <code>QT_NO_CAST_TO_ASCII</code> when you compile your applications. You then need to call <a href="qstring.html#toUtf8">QString::toUtf8</a>() (or <a href="qstring.html#toLatin1">QString::toLatin1</a>() or <a href="qstring.html#toLocal8Bit">QString::toLocal8Bit</a>()) explicitly if you want to convert the data to <code>const char *</code>.</p>
+<!-- @@@indexOf -->
+<!-- $$$insert$$$insertintconstQString& -->
+<h3 class="fn" id="insert-5"><a name="insert-5"></a><span class="type"><a href="qbytearray.html#QByteArray">QByteArray</a></span> &amp;QByteArray::<span class="name">insert</span>(<span class="type">int</span> <i>i</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>str</i>)</h3>
+<p>This function is obsolete. It is provided to keep old source code working. We strongly advise against using it in new code.</p>
+<p>This is an overloaded function.</p>
+<p>Inserts the string <i>str</i> at index position <i>i</i> in the byte array. The Unicode data is converted into 8-bit characters using <a href="qstring.html#toUtf8">QString::toUtf8</a>().</p>
+<p>If <i>i</i> is greater than <a href="qbytearray.html#size">size</a>(), the array is first extended using <a href="qbytearray.html#resize">resize</a>().</p>
+<p>You can disable this function by defining <code>QT_NO_CAST_TO_ASCII</code> when you compile your applications. You then need to call <a href="qstring.html#toUtf8">QString::toUtf8</a>() (or <a href="qstring.html#toLatin1">QString::toLatin1</a>() or <a href="qstring.html#toLocal8Bit">QString::toLocal8Bit</a>()) explicitly if you want to convert the data to <code>const char *</code>.</p>
+<!-- @@@insert -->
+<!-- $$$lastIndexOf$$$lastIndexOfconstQString&int -->
+<h3 class="fn" id="lastIndexOf-3"><a name="lastIndexOf-3"></a><span class="type">int</span> QByteArray::<span class="name">lastIndexOf</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>str</i>, <span class="type">int</span> <i>from</i> = -1) const</h3>
+<p>This function is obsolete. It is provided to keep old source code working. We strongly advise against using it in new code.</p>
+<p>This is an overloaded function.</p>
+<p>Returns the index position of the last occurrence of the string <i>str</i> in the byte array, searching backward from index position <i>from</i>. If <i>from</i> is -1 (the default), the search starts at the last (<a href="qbytearray.html#size">size</a>() - 1) byte. Returns -1 if <i>str</i> could not be found.</p>
+<p>The Unicode data is converted into 8-bit characters using <a href="qstring.html#toUtf8">QString::toUtf8</a>().</p>
+<p>You can disable this function by defining <code>QT_NO_CAST_TO_ASCII</code> when you compile your applications. You then need to call <a href="qstring.html#toUtf8">QString::toUtf8</a>() (or <a href="qstring.html#toLatin1">QString::toLatin1</a>() or <a href="qstring.html#toLocal8Bit">QString::toLocal8Bit</a>()) explicitly if you want to convert the data to <code>const char *</code>.</p>
+<!-- @@@lastIndexOf -->
+<!-- $$$replace$$$replaceconstQString&constchar* -->
+<h3 class="fn" id="replace-11"><a name="replace-11"></a><span class="type"><a href="qbytearray.html#QByteArray">QByteArray</a></span> &amp;QByteArray::<span class="name">replace</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>before</i>, const <span class="type">char</span> *<i>after</i>)</h3>
+<p>This function is obsolete. It is provided to keep old source code working. We strongly advise against using it in new code.</p>
+<p>This is an overloaded function.</p>
+<p>Replaces every occurrence of the string <i>before</i> with the string <i>after</i>.</p>
+<!-- @@@replace -->
+<!-- $$$replace$$$replacecharconstQString& -->
+<h3 class="fn" id="replace-12"><a name="replace-12"></a><span class="type"><a href="qbytearray.html#QByteArray">QByteArray</a></span> &amp;QByteArray::<span class="name">replace</span>(<span class="type">char</span> <i>before</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>after</i>)</h3>
+<p>This function is obsolete. It is provided to keep old source code working. We strongly advise against using it in new code.</p>
+<p>This is an overloaded function.</p>
+<p>Replaces every occurrence of the character <i>before</i> with the string <i>after</i>. The Unicode data is converted into 8-bit characters using <a href="qstring.html#toUtf8">QString::toUtf8</a>().</p>
+<p>You can disable this function by defining <code>QT_NO_CAST_TO_ASCII</code> when you compile your applications. You then need to call <a href="qstring.html#toUtf8">QString::toUtf8</a>() (or <a href="qstring.html#toLatin1">QString::toLatin1</a>() or <a href="qstring.html#toLocal8Bit">QString::toLocal8Bit</a>()) explicitly if you want to convert the data to <code>const char *</code>.</p>
+<!-- @@@replace -->
+<!-- $$$replace$$$replaceconstQString&constQByteArray& -->
+<h3 class="fn" id="replace-13"><a name="replace-13"></a><span class="type"><a href="qbytearray.html#QByteArray">QByteArray</a></span> &amp;QByteArray::<span class="name">replace</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>before</i>, const <span class="type"><a href="qbytearray.html#QByteArray">QByteArray</a></span> &amp;<i>after</i>)</h3>
+<p>This function is obsolete. It is provided to keep old source code working. We strongly advise against using it in new code.</p>
+<p>This is an overloaded function.</p>
+<p>Replaces every occurrence of the string <i>before</i> with the byte array <i>after</i>. The Unicode data is converted into 8-bit characters using <a href="qstring.html#toUtf8">QString::toUtf8</a>().</p>
+<p>You can disable this function by defining <code>QT_NO_CAST_TO_ASCII</code> when you compile your applications. You then need to call <a href="qstring.html#toUtf8">QString::toUtf8</a>() (or <a href="qstring.html#toLatin1">QString::toLatin1</a>() or <a href="qstring.html#toLocal8Bit">QString::toLocal8Bit</a>()) explicitly if you want to convert the data to <code>const char *</code>.</p>
+<!-- @@@replace -->
+<!-- $$$operator+=$$$operator+=constQString& -->
+<h3 class="fn" id="operator-2b-eq-3"><a name="operator-2b-eq-3"></a><span class="type"><a href="qbytearray.html#QByteArray">QByteArray</a></span> &amp;QByteArray::<span class="name">operator+=</span>(const <span class="type"><a href="qstring.html">QString</a></span> &amp;<i>str</i>)</h3>
+<p>This function is obsolete. It is provided to keep old source code working. We strongly advise against using it in new code.</p>
+<p>This is an overloaded function.</p>
+<p>Appends the string <i>str</i> onto the end of this byte array and returns a reference to this byte array. The Unicode data is converted into 8-bit characters using <a href="qstring.html#toUtf8">QString::toUtf8</a>().</p>
+<p>You can disable this function by defining <code>QT_NO_CAST_TO_ASCII</code> when you compile your applications. You then need to call <a href="qstring.html#toUtf8">QString::toUtf8</a>() (or <a href="qstring.html#toLatin1">QString::toLatin1</a>() or <a href="qstring.html#toLocal8Bit">QString::toLocal8Bit</a>()) explicitly if you want to convert the data to <code>const char *</code>.</p>
+<!-- @@@operator+= -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2020 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

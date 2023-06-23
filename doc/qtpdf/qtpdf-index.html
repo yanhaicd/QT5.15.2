@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- qtpdf-index.qdoc -->
+  <title>Qt PDF 5.15.2</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+    <div class="main">
+    <div class="main-rounded">
+        <div class="navigationbar">
+        <ul>
+<li><a href="../qtdoc/index.html">Qt 5.15</a></li>
+<li>Qt PDF</li>
+<li id="buildversion">Qt 5.15.2 Reference Documentation</li>
+    </ul>
+    </div>
+</div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#using-the-module">Using the Module</a></li>
+<li class="level2"><a href="#building-with-cmake">Building with CMake</a></li>
+<li class="level2"><a href="#building-with-qmake">Building with qmake</a></li>
+<li class="level1"><a href="#articles-and-guides">Articles and Guides</a></li>
+<li class="level1"><a href="#examples">Examples</a></li>
+<li class="level1"><a href="#api-reference">API Reference</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Qt PDF</h1>
+<span class="subtitle"></span>
+<!-- $$$qtpdf-index.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>The Qt PDF module contains classes and functions for rendering PDF documents. The <a href="qpdfdocument.html">QPdfDocument</a> class loads a PDF document and renders pages from it according to the options provided by the <a href="qpdfdocumentrenderoptions.html">QPdfDocumentRenderOptions</a> class. The <a href="qpdfpagerenderer.html">QPdfPageRenderer</a> class manages a queue that collects all render requests. The <a href="qpdfpagenavigation.html">QPdfPageNavigation</a> class handles the navigation through a PDF document.</p>
+<a name="using-the-module"></a>
+<h2 id="using-the-module">Using the Module</h2>
+<p>Using a Qt module requires linking against the module library, either directly or through other dependencies. Several build tools have dedicated support for this, including <a href="http://www.cmake.org/cmake/help/documentation.html">CMake</a> and <a href="../qmake/qmake-manual.html">qmake</a>.</p>
+<a name="building-with-cmake"></a>
+<h3 id="building-with-cmake">Building with CMake</h3>
+<p>Use the <code>find_package()</code> command to locate the needed module components in the <code>Qt5</code> package:</p>
+<pre class="cpp">
+ find_package(Qt5 COMPONENTS Pdf REQUIRED)
+ target_link_libraries(mytarget Qt5::Pdf)
+</pre>
+<p>See also the <a href="../qtcmake/cmake-manual.html">Build with CMake</a> overview.</p>
+<a name="building-with-qmake"></a>
+<h3 id="building-with-qmake">Building with qmake</h3>
+<p>To include the definitions of the module's classes, use the following directive:</p>
+<pre class="cpp">
+ <span class="preprocessor">#include &lt;QtPdf&gt;</span>
+</pre>
+<p>To link against the module, add this line to your qmake project file:</p>
+<pre class="cpp">
+ QT <span class="operator">+</span><span class="operator">=</span> pdf
+</pre>
+<a name="articles-and-guides"></a>
+<h2 id="articles-and-guides">Articles and Guides</h2>
+<ul>
+<li>Qt PDF Overview</li>
+</ul>
+<a name="examples"></a>
+<h2 id="examples">Examples</h2>
+<ul>
+<li><a href="qtpdf-examples.html">Qt PDF Examples</a></li>
+</ul>
+<a name="api-reference"></a>
+<h2 id="api-reference">API Reference</h2>
+<ul>
+<li><a href="qtpdf-module.html">Qt PDF C++ Classes</a></li>
+<li><a href="qtquick-pdf-qmlmodule.html">Qt Quick PDF QML Types</a></li>
+</ul>
+</div>
+<!-- @@@qtpdf-index.html -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2020 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

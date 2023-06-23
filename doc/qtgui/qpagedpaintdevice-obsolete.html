@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- qpagedpaintdevice.cpp -->
+  <title>Obsolete Members for QPagedPaintDevice | Qt GUI 5.15.2</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+    <div class="main">
+    <div class="main-rounded">
+        <div class="navigationbar">
+        <ul>
+<li>Qt 5.15</li>
+<li><a href="qtgui-index.html">Qt GUI</a></li>
+<li><a href="qtgui-module.html">C++ Classes</a></li>
+<li>QPagedPaintDevice</li>
+<li id="buildversion"><a href="qtgui-index.html">Qt 5.15.2 Reference Documentation</a></li>
+    </ul>
+    </div>
+</div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar"><div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Obsolete Members for QPagedPaintDevice</h1>
+<p><b>The following members of class <a href="qpagedpaintdevice.html">QPagedPaintDevice</a> are obsolete.</b> They are provided to keep old source code working. We strongly advise against using them in new code.</p>
+<h2>Public Functions</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> <code>(obsolete) </code></td><td class="memItemRight bottomAlign"><b><a href="qpagedpaintdevice-obsolete.html#QPagedPaintDevice">QPagedPaintDevice</a></b>()</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> <code>(obsolete) </code>QPagedPaintDevice::Margins </td><td class="memItemRight bottomAlign"><b><a href="qpagedpaintdevice-obsolete.html#margins">margins</a></b>() const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> <code>(obsolete) </code>QSizeF </td><td class="memItemRight bottomAlign"><b><a href="qpagedpaintdevice-obsolete.html#pageSizeMM">pageSizeMM</a></b>() const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> <code>(obsolete) </code>virtual void </td><td class="memItemRight bottomAlign"><b><a href="qpagedpaintdevice-obsolete.html#setMargins">setMargins</a></b>(const QPagedPaintDevice::Margins &amp;<i>margins</i>)</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> <code>(obsolete) </code>virtual void </td><td class="memItemRight bottomAlign"><b><a href="qpagedpaintdevice-obsolete.html#setPageSizeMM">setPageSizeMM</a></b>(const QSizeF &amp;<i>size</i>)</td></tr>
+</table></div>
+<h2>Member Function Documentation</h2>
+<!-- $$$QPagedPaintDevice[overload1]$$$QPagedPaintDevice -->
+<h3 class="fn" id="QPagedPaintDevice"><a name="QPagedPaintDevice"></a>QPagedPaintDevice::<span class="name">QPagedPaintDevice</span>()</h3>
+<p>This function is obsolete. It is provided to keep old source code working. We strongly advise against using it in new code.</p>
+<p>Constructs a new paged paint device.</p>
+<!-- @@@QPagedPaintDevice -->
+<!-- $$$margins[overload1]$$$margins -->
+<h3 class="fn" id="margins"><a name="margins"></a><span class="type">QPagedPaintDevice::Margins</span> QPagedPaintDevice::<span class="name">margins</span>() const</h3>
+<p>This function is obsolete. It is provided to keep old source code working. We strongly advise against using it in new code.</p>
+<p>Use <a href="qpagedpaintdevice.html#pageLayout">pageLayout</a>().margins() instead. Returns the current margins of the paint device. The default is 0.</p>
+<p>Margins are specified in millimeters.</p>
+<p><b>See also </b><a href="qpagedpaintdevice-obsolete.html#setMargins">setMargins</a>().</p>
+<!-- @@@margins -->
+<!-- $$$pageSizeMM[overload1]$$$pageSizeMM -->
+<h3 class="fn" id="pageSizeMM"><a name="pageSizeMM"></a><span class="type"><a href="../qtcore/qsizef.html">QSizeF</a></span> QPagedPaintDevice::<span class="name">pageSizeMM</span>() const</h3>
+<p>This function is obsolete. It is provided to keep old source code working. We strongly advise against using it in new code.</p>
+<p>Use <a href="qpagedpaintdevice.html#pageLayout">pageLayout</a>().<a href="qpagedpaintdevice.html#pageSize">pageSize</a>() instead.</p>
+<p>Returns the page size in millimeters.</p>
+<p><b>See also </b><a href="qpagedpaintdevice-obsolete.html#setPageSizeMM">setPageSizeMM</a>().</p>
+<!-- @@@pageSizeMM -->
+<!-- $$$setMargins[overload1]$$$setMarginsconstQPagedPaintDevice::Margins& -->
+<h3 class="fn" id="setMargins"><a name="setMargins"></a><code>[virtual] </code><span class="type">void</span> QPagedPaintDevice::<span class="name">setMargins</span>(const <span class="type">QPagedPaintDevice::Margins</span> &amp;<i>margins</i>)</h3>
+<p>This function is obsolete. It is provided to keep old source code working. We strongly advise against using it in new code.</p>
+<p>Use <a href="qpagedpaintdevice.html#setPageMargins">setPageMargins</a>(<a href="../qtcore/qmarginsf.html">QMarginsF</a>, <a href="qpagelayout.html#Unit-enum">QPageLayout::Unit</a>) instead. Sets the margins to be used to <i>margins</i>.</p>
+<p>Margins are specified in millimeters.</p>
+<p>The margins are purely a hint to the drawing method. They don't affect the coordinate system or clipping.</p>
+<p><b>See also </b><a href="qpagedpaintdevice-obsolete.html#margins">margins</a>().</p>
+<!-- @@@setMargins -->
+<!-- $$$setPageSizeMM[overload1]$$$setPageSizeMMconstQSizeF& -->
+<h3 class="fn" id="setPageSizeMM"><a name="setPageSizeMM"></a><code>[virtual] </code><span class="type">void</span> QPagedPaintDevice::<span class="name">setPageSizeMM</span>(const <span class="type"><a href="../qtcore/qsizef.html">QSizeF</a></span> &amp;<i>size</i>)</h3>
+<p>This function is obsolete. It is provided to keep old source code working. We strongly advise against using it in new code.</p>
+<p>Use <a href="qpagedpaintdevice.html#setPageSize">setPageSize</a>(<a href="qpagesize.html">QPageSize</a>) instead. Sets the page size to <i>size</i>. <i>size</i> is specified in millimeters.</p>
+<p>If the size matches a standard <a href="qpagedpaintdevice.html#PageSize-enum">QPagedPaintDevice::PageSize</a> then that page size will be used, otherwise <a href="qpagedpaintdevice.html#PageSize-enum">QPagedPaintDevice::Custom</a> will be set.</p>
+<p><b>See also </b><a href="qpagedpaintdevice-obsolete.html#pageSizeMM">pageSizeMM</a>().</p>
+<!-- @@@setPageSizeMM -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2020 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>

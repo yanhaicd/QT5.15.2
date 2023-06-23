@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QtHelpProject version="1.0">
+    <namespace>org.qt-project.qtqmlmodels.5152</namespace>
+    <virtualFolder>qtqmlmodels</virtualFolder>
+    <metaData name="version" value="5.15.2"/>
+    <customFilter name="QtQmlModels 5.15.2">
+        <filterAttribute>5.15.2</filterAttribute>
+        <filterAttribute>qtqmlmodels</filterAttribute>
+    </customFilter>
+    <filterSection>
+        <filterAttribute>5.15.2</filterAttribute>
+        <filterAttribute>qtqmlmodels</filterAttribute>
+        <filterAttribute>qtrefdoc</filterAttribute>
+        <toc>
+            <section ref="qtqml-models-qmlmodule.html" title="Qt QML Models QML Types">
+                <section ref="" title="">
+                    <section ref="qml-qt-labs-qmlmodels-delegatechoice.html" title="DelegateChoice Type Reference">
+                        <section ref="qml-qt-labs-qmlmodels-delegatechoice-members.html" title="List of all members"/>
+                    </section>
+                    <section ref="qml-qt-labs-qmlmodels-delegatechooser.html" title="DelegateChooser Type Reference">
+                        <section ref="qml-qt-labs-qmlmodels-delegatechooser-members.html" title="List of all members"/>
+                    </section>
+                    <section ref="qml-qt-labs-qmlmodels-tablemodel.html" title="TableModel Type Reference">
+                        <section ref="qml-qt-labs-qmlmodels-tablemodel-members.html" title="List of all members"/>
+                    </section>
+                    <section ref="qml-qt-labs-qmlmodels-tablemodelcolumn.html" title="TableModelColumn Type Reference">
+                        <section ref="qml-qt-labs-qmlmodels-tablemodelcolumn-members.html" title="List of all members"/>
+                    </section>
+                    <section ref="qml-qtqml-models-delegatemodel.html" title="DelegateModel Type Reference">
+                        <section ref="qml-qtqml-models-delegatemodel-members.html" title="List of all members"/>
+                    </section>
+                    <section ref="qml-qtqml-models-delegatemodelgroup.html" title="DelegateModelGroup Type Reference">
+                        <section ref="qml-qtqml-models-delegatemodelgroup-members.html" title="List of all members"/>
+                    </section>
+                    <section ref="qml-qtqml-models-instantiator.html" title="Instantiator Type Reference">
+                        <section ref="qml-qtqml-models-instantiator-members.html" title="List of all members"/>
+                    </section>
+                    <section ref="qml-qtqml-models-itemselectionmodel.html" title="ItemSelectionModel Type Reference">
+                        <section ref="qml-qtqml-models-itemselectionmodel-members.html" title="List of all members"/>
+                    </section>
+                    <section ref="qml-qtqml-models-listelement.html" title="ListElement Type Reference">
+                        <section ref="qml-qtqml-models-listelement-members.html" title="List of all members"/>
+                    </section>
+                    <section ref="qml-qtqml-models-listmodel.html" title="ListModel Type Reference">
+                        <section ref="qml-qtqml-models-listmodel-members.html" title="List of all members"/>
+                    </section>
+                    <section ref="qml-qtqml-models-objectmodel.html" title="ObjectModel Type Reference">
+                        <section ref="qml-qtqml-models-objectmodel-members.html" title="List of all members"/>
+                    </section>
+                    <section ref="qml-qtqml-models-package.html" title="Package Type Reference">
+                        <section ref="qml-qtqml-models-package-members.html" title="List of all members"/>
+                    </section>
+                </section>
+            </section>
+        </toc>
+        <keywords>
+            <keyword name="DelegateChoice" id="QML.DelegateChoice" ref="qml-qt-labs-qmlmodels-delegatechoice.html"/>
+            <keyword name="DelegateChooser" id="QML.DelegateChooser" ref="qml-qt-labs-qmlmodels-delegatechooser.html"/>
+            <keyword name="DelegateModel" id="QML.DelegateModel" ref="qml-qtqml-models-delegatemodel.html"/>
+            <keyword name="DelegateModelGroup" id="QML.DelegateModelGroup" ref="qml-qtqml-models-delegatemodelgroup.html"/>
+            <keyword name="Instantiator" id="QML.Instantiator" ref="qml-qtqml-models-instantiator.html"/>
+            <keyword name="ItemSelectionModel" id="QML.ItemSelectionModel" ref="qml-qtqml-models-itemselectionmodel.html"/>
+            <keyword name="ListElement" id="QML.ListElement" ref="qml-qtqml-models-listelement.html"/>
+            <keyword name="ListModel" id="QML.ListModel" ref="qml-qtqml-models-listmodel.html"/>
+            <keyword name="ObjectModel" id="QML.ObjectModel" ref="qml-qtqml-models-objectmodel.html"/>
+            <keyword name="Package" id="QML.Package" ref="qml-qtqml-models-package.html"/>
+            <keyword name="QModelIndex and related Classes in QML" id="QModelIndex and related Classes in QML" ref="qmodelindex-and-related-classes-in-qml.html"/>
+            <keyword name="Qt QML Models QML Types" id="Qt QML Models QML Types" ref="qtqml-models-qmlmodule.html"/>
+            <keyword name="Qt QML Models experimental QML Types" id="Qt QML Models experimental QML Types" ref="qt-labs-qmlmodels-qmlmodule.html"/>
+            <keyword name="TableModel" id="QML.TableModel" ref="qml-qt-labs-qmlmodels-tablemodel.html"/>
+            <keyword name="TableModelColumn" id="QML.TableModelColumn" ref="qml-qt-labs-qmlmodels-tablemodelcolumn.html"/>
+            <keyword name="active" id="Instantiator::active" ref="qml-qtqml-models-instantiator.html#active-prop"/>
+            <keyword name="addGroups" id="DelegateModelGroup::addGroups" ref="qml-qtqml-models-delegatemodelgroup.html#addGroups-method"/>
+            <keyword name="append" id="ListModel::append" ref="qml-qtqml-models-listmodel.html#append-method"/>
+            <keyword name="append" id="ObjectModel::append" ref="qml-qtqml-models-objectmodel.html#append-method"/>
+            <keyword name="appendRow" id="TableModel::appendRow" ref="qml-qt-labs-qmlmodels-tablemodel.html#appendRow-method"/>
+            <keyword name="asynchronous" id="Instantiator::asynchronous" ref="qml-qtqml-models-instantiator.html#asynchronous-prop"/>
+            <keyword name="changed" id="DelegateModelGroup::changed" ref="qml-qtqml-models-delegatemodelgroup.html#changed-signal"/>
+            <keyword name="choices" id="DelegateChooser::choices" ref="qml-qt-labs-qmlmodels-delegatechooser.html#choices-prop"/>
+            <keyword name="clear" id="ItemSelectionModel::clear" ref="qml-qtqml-models-itemselectionmodel.html#clear-method"/>
+            <keyword name="clear" id="ListModel::clear" ref="qml-qtqml-models-listmodel.html#clear-method"/>
+            <keyword name="clear" id="ObjectModel::clear" ref="qml-qtqml-models-objectmodel.html#clear-method"/>
+            <keyword name="clear" id="TableModel::clear" ref="qml-qt-labs-qmlmodels-tablemodel.html#clear-method"/>
+            <keyword name="clearCurrentIndex" id="ItemSelectionModel::clearCurrentIndex" ref="qml-qtqml-models-itemselectionmodel.html#clearCurrentIndex-method"/>
+            <keyword name="clearSelection" id="ItemSelectionModel::clearSelection" ref="qml-qtqml-models-itemselectionmodel.html#clearSelection-method"/>
+            <keyword name="column" id="DelegateChoice::column" ref="qml-qt-labs-qmlmodels-delegatechoice.html#column-prop"/>
+            <keyword name="columnCount" id="TableModel::columnCount" ref="qml-qt-labs-qmlmodels-tablemodel.html#columnCount-prop"/>
+            <keyword name="columnIntersectsSelection" id="ItemSelectionModel::columnIntersectsSelection" ref="qml-qtqml-models-itemselectionmodel.html#columnIntersectsSelection-method"/>
+            <keyword name="count" id="DelegateModel::count" ref="qml-qtqml-models-delegatemodel.html#count-prop"/>
+            <keyword name="count" id="DelegateModelGroup::count" ref="qml-qtqml-models-delegatemodelgroup.html#count-prop"/>
+            <keyword name="count" id="Instantiator::count" ref="qml-qtqml-models-instantiator.html#count-prop"/>
+            <keyword name="count" id="ListModel::count" ref="qml-qtqml-models-listmodel.html#count-prop"/>
+            <keyword name="count" id="ObjectModel::count" ref="qml-qtqml-models-objectmodel.html#count-prop"/>
+            <keyword name="create" id="DelegateModelGroup::create" ref="qml-qtqml-models-delegatemodelgroup.html#create-method"/>
+            <keyword name="currentChanged" id="ItemSelectionModel::currentChanged" ref="qml-qtqml-models-itemselectionmodel.html#currentChanged-signal"/>
+            <keyword name="currentIndex" id="ItemSelectionModel::currentIndex" ref="qml-qtqml-models-itemselectionmodel.html#currentIndex-prop"/>
+            <keyword name="data" id="TableModel::data" ref="qml-qt-labs-qmlmodels-tablemodel.html#data-method"/>
+            <keyword name="delegate" id="DelegateChoice::delegate" ref="qml-qt-labs-qmlmodels-delegatechoice.html#delegate-prop"/>
+            <keyword name="delegate" id="DelegateModel::delegate" ref="qml-qtqml-models-delegatemodel.html#delegate-prop"/>
+            <keyword name="delegate" id="Instantiator::delegate" ref="qml-qtqml-models-instantiator.html#delegate-prop"/>
+            <keyword name="dynamicRoles" id="ListModel::dynamicRoles" ref="qml-qtqml-models-listmodel.html#dynamicRoles-prop"/>
+            <keyword name="filterOnGroup" id="DelegateModel::filterOnGroup" ref="qml-qtqml-models-delegatemodel.html#filterOnGroup-prop"/>
+            <keyword name="get" id="DelegateModelGroup::get" ref="qml-qtqml-models-delegatemodelgroup.html#get-method"/>
+            <keyword name="get" id="ListModel::get" ref="qml-qtqml-models-listmodel.html#get-method"/>
+            <keyword name="get" id="ObjectModel::get" ref="qml-qtqml-models-objectmodel.html#get-method"/>
+            <keyword name="getRow" id="TableModel::getRow" ref="qml-qt-labs-qmlmodels-tablemodel.html#getRow-method"/>
+            <keyword name="groups" id="DelegateModel::groups" ref="qml-qtqml-models-delegatemodel.html#groups-attached-prop"/>
+            <keyword name="groups" id="DelegateModel::groups" ref="qml-qtqml-models-delegatemodel.html#groups-prop"/>
+            <keyword name="hasSelection" id="ItemSelectionModel::hasSelection" ref="qml-qtqml-models-itemselectionmodel.html#hasSelection-prop"/>
+            <keyword name="inItems" id="DelegateModel::inItems" ref="qml-qtqml-models-delegatemodel.html#inItems-attached-prop"/>
+            <keyword name="inPersistedItems" id="DelegateModel::inPersistedItems" ref="qml-qtqml-models-delegatemodel.html#inPersistedItems-attached-prop"/>
+            <keyword name="includeByDefault" id="DelegateModelGroup::includeByDefault" ref="qml-qtqml-models-delegatemodelgroup.html#includeByDefault-prop"/>
+            <keyword name="index" id="DelegateChoice::index" ref="qml-qt-labs-qmlmodels-delegatechoice.html#index-prop"/>
+            <keyword name="index" id="ObjectModel::index" ref="qml-qtqml-models-objectmodel.html#index-attached-prop"/>
+            <keyword name="index" id="TableModel::index" ref="qml-qt-labs-qmlmodels-tablemodel.html#index-method"/>
+            <keyword name="insert" id="DelegateModelGroup::insert" ref="qml-qtqml-models-delegatemodelgroup.html#insert-method"/>
+            <keyword name="insert" id="ListModel::insert" ref="qml-qtqml-models-listmodel.html#insert-method"/>
+            <keyword name="insert" id="ObjectModel::insert" ref="qml-qtqml-models-objectmodel.html#insert-method"/>
+            <keyword name="insertRow" id="TableModel::insertRow" ref="qml-qt-labs-qmlmodels-tablemodel.html#insertRow-method"/>
+            <keyword name="isColumnSelected" id="ItemSelectionModel::isColumnSelected" ref="qml-qtqml-models-itemselectionmodel.html#isColumnSelected-method"/>
+            <keyword name="isRowSelected" id="ItemSelectionModel::isRowSelected" ref="qml-qtqml-models-itemselectionmodel.html#isRowSelected-method"/>
+            <keyword name="isSelected" id="ItemSelectionModel::isSelected" ref="qml-qtqml-models-itemselectionmodel.html#isSelected-method"/>
+            <keyword name="isUnresolved" id="DelegateModel::isUnresolved" ref="qml-qtqml-models-delegatemodel.html#isUnresolved-attached-prop"/>
+            <keyword name="items" id="DelegateModel::items" ref="qml-qtqml-models-delegatemodel.html#items-prop"/>
+            <keyword name="itemsIndex" id="DelegateModel::itemsIndex" ref="qml-qtqml-models-delegatemodel.html#itemsIndex-attached-prop"/>
+            <keyword name="model" id="DelegateModel::model" ref="qml-qtqml-models-delegatemodel.html#model-attached-prop"/>
+            <keyword name="model" id="DelegateModel::model" ref="qml-qtqml-models-delegatemodel.html#model-prop"/>
+            <keyword name="model" id="Instantiator::model" ref="qml-qtqml-models-instantiator.html#model-prop"/>
+            <keyword name="model" id="ItemSelectionModel::model" ref="qml-qtqml-models-itemselectionmodel.html#model-prop"/>
+            <keyword name="modelIndex" id="DelegateModel::modelIndex" ref="qml-qtqml-models-delegatemodel.html#modelIndex-method"/>
+            <keyword name="move" id="DelegateModelGroup::move" ref="qml-qtqml-models-delegatemodelgroup.html#move-method"/>
+            <keyword name="move" id="ListModel::move" ref="qml-qtqml-models-listmodel.html#move-method"/>
+            <keyword name="move" id="ObjectModel::move" ref="qml-qtqml-models-objectmodel.html#move-method"/>
+            <keyword name="moveRow" id="TableModel::moveRow" ref="qml-qt-labs-qmlmodels-tablemodel.html#moveRow-method"/>
+            <keyword name="name" id="DelegateModelGroup::name" ref="qml-qtqml-models-delegatemodelgroup.html#name-prop"/>
+            <keyword name="name" id="Package::name" ref="qml-qtqml-models-package.html#name-attached-prop"/>
+            <keyword name="object" id="Instantiator::object" ref="qml-qtqml-models-instantiator.html#object-prop"/>
+            <keyword name="objectAdded" id="Instantiator::objectAdded" ref="qml-qtqml-models-instantiator.html#objectAdded-signal"/>
+            <keyword name="objectAt" id="Instantiator::objectAt" ref="qml-qtqml-models-instantiator.html#objectAt-method"/>
+            <keyword name="objectRemoved" id="Instantiator::objectRemoved" ref="qml-qtqml-models-instantiator.html#objectRemoved-signal"/>
+            <keyword name="operator&lt;&lt;" id="operator&lt;&lt;" ref=""/>
+            <keyword name="parentModelIndex" id="DelegateModel::parentModelIndex" ref="qml-qtqml-models-delegatemodel.html#parentModelIndex-method"/>
+            <keyword name="parts" id="DelegateModel::parts" ref="qml-qtqml-models-delegatemodel.html#parts-prop"/>
+            <keyword name="persistedItems" id="DelegateModel::persistedItems" ref="qml-qtqml-models-delegatemodel.html#persistedItems-prop"/>
+            <keyword name="persistedItemsIndex" id="DelegateModel::persistedItemsIndex" ref="qml-qtqml-models-delegatemodel.html#persistedItemsIndex-attached-prop"/>
+            <keyword name="remove" id="DelegateModelGroup::remove" ref="qml-qtqml-models-delegatemodelgroup.html#remove-method"/>
+            <keyword name="remove" id="ListModel::remove" ref="qml-qtqml-models-listmodel.html#remove-method"/>
+            <keyword name="remove" id="ObjectModel::remove" ref="qml-qtqml-models-objectmodel.html#remove-method"/>
+            <keyword name="removeGroups" id="DelegateModelGroup::removeGroups" ref="qml-qtqml-models-delegatemodelgroup.html#removeGroups-method"/>
+            <keyword name="removeRow" id="TableModel::removeRow" ref="qml-qt-labs-qmlmodels-tablemodel.html#removeRow-method"/>
+            <keyword name="reset" id="ItemSelectionModel::reset" ref="qml-qtqml-models-itemselectionmodel.html#reset-method"/>
+            <keyword name="resolve" id="DelegateModelGroup::resolve" ref="qml-qtqml-models-delegatemodelgroup.html#resolve-method"/>
+            <keyword name="role" id="DelegateChooser::role" ref="qml-qt-labs-qmlmodels-delegatechooser.html#role-prop"/>
+            <keyword name="roleValue" id="DelegateChoice::roleValue" ref="qml-qt-labs-qmlmodels-delegatechoice.html#roleValue-prop"/>
+            <keyword name="rootIndex" id="DelegateModel::rootIndex" ref="qml-qtqml-models-delegatemodel.html#rootIndex-prop"/>
+            <keyword name="row" id="DelegateChoice::row" ref="qml-qt-labs-qmlmodels-delegatechoice.html#row-prop"/>
+            <keyword name="rowCount" id="TableModel::rowCount" ref="qml-qt-labs-qmlmodels-tablemodel.html#rowCount-prop"/>
+            <keyword name="rowIntersectsSelection" id="ItemSelectionModel::rowIntersectsSelection" ref="qml-qtqml-models-itemselectionmodel.html#rowIntersectsSelection-method"/>
+            <keyword name="rows" id="TableModel::rows" ref="qml-qt-labs-qmlmodels-tablemodel.html#rows-prop"/>
+            <keyword name="select" id="ItemSelectionModel::select" ref="qml-qtqml-models-itemselectionmodel.html#select-method"/>
+            <keyword name="selectedColumns" id="ItemSelectionModel::selectedColumns" ref="qml-qtqml-models-itemselectionmodel.html#selectedColumns-method"/>
+            <keyword name="selectedIndexes" id="ItemSelectionModel::selectedIndexes" ref="qml-qtqml-models-itemselectionmodel.html#selectedIndexes-prop"/>
+            <keyword name="selectedRows" id="ItemSelectionModel::selectedRows" ref="qml-qtqml-models-itemselectionmodel.html#selectedRows-method"/>
+            <keyword name="selection" id="ItemSelectionModel::selection" ref="qml-qtqml-models-itemselectionmodel.html#selection-prop"/>
+            <keyword name="selectionChanged" id="ItemSelectionModel::selectionChanged" ref="qml-qtqml-models-itemselectionmodel.html#selectionChanged-signal"/>
+            <keyword name="set" id="ListModel::set" ref="qml-qtqml-models-listmodel.html#set-method"/>
+            <keyword name="setCurrentIndex" id="ItemSelectionModel::setCurrentIndex" ref="qml-qtqml-models-itemselectionmodel.html#setCurrentIndex-method"/>
+            <keyword name="setData" id="TableModel::setData" ref="qml-qt-labs-qmlmodels-tablemodel.html#setData-method"/>
+            <keyword name="setGroups" id="DelegateModelGroup::setGroups" ref="qml-qtqml-models-delegatemodelgroup.html#setGroups-method"/>
+            <keyword name="setProperty" id="ListModel::setProperty" ref="qml-qtqml-models-listmodel.html#setProperty-method"/>
+            <keyword name="setRow" id="TableModel::setRow" ref="qml-qt-labs-qmlmodels-tablemodel.html#setRow-method"/>
+            <keyword name="sync" id="ListModel::sync" ref="qml-qtqml-models-listmodel.html#sync-method"/>
+        </keywords>
+        <files>
+            <file>images/arrow_bc.png</file>
+            <file>images/bgrContent.png</file>
+            <file>images/btn_next.png</file>
+            <file>images/btn_prev.png</file>
+            <file>images/bullet_dn.png</file>
+            <file>images/bullet_sq.png</file>
+            <file>images/home.png</file>
+            <file>images/ico_note.png</file>
+            <file>images/ico_note_attention.png</file>
+            <file>images/ico_out.png</file>
+            <file>images/listmodel-nested.png</file>
+            <file>images/listmodel.png</file>
+            <file>images/logo.png</file>
+            <file>images/objectmodel.png</file>
+            <file>qml-qt-labs-qmlmodels-delegatechoice-members.html</file>
+            <file>qml-qt-labs-qmlmodels-delegatechoice.html</file>
+            <file>qml-qt-labs-qmlmodels-delegatechooser-members.html</file>
+            <file>qml-qt-labs-qmlmodels-delegatechooser.html</file>
+            <file>qml-qt-labs-qmlmodels-tablemodel-members.html</file>
+            <file>qml-qt-labs-qmlmodels-tablemodel.html</file>
+            <file>qml-qt-labs-qmlmodels-tablemodelcolumn-members.html</file>
+            <file>qml-qt-labs-qmlmodels-tablemodelcolumn.html</file>
+            <file>qml-qtqml-models-delegatemodel-members.html</file>
+            <file>qml-qtqml-models-delegatemodel.html</file>
+            <file>qml-qtqml-models-delegatemodelgroup-members.html</file>
+            <file>qml-qtqml-models-delegatemodelgroup.html</file>
+            <file>qml-qtqml-models-instantiator-members.html</file>
+            <file>qml-qtqml-models-instantiator.html</file>
+            <file>qml-qtqml-models-itemselectionmodel-members.html</file>
+            <file>qml-qtqml-models-itemselectionmodel.html</file>
+            <file>qml-qtqml-models-listelement-members.html</file>
+            <file>qml-qtqml-models-listelement.html</file>
+            <file>qml-qtqml-models-listmodel-members.html</file>
+            <file>qml-qtqml-models-listmodel.html</file>
+            <file>qml-qtqml-models-objectmodel-members.html</file>
+            <file>qml-qtqml-models-objectmodel.html</file>
+            <file>qml-qtqml-models-package-members.html</file>
+            <file>qml-qtqml-models-package.html</file>
+            <file>qmodelindex-and-related-classes-in-qml.html</file>
+            <file>qt-labs-qmlmodels-qmlmodule.html</file>
+            <file>qtqml-models-qmlmodule.html</file>
+            <file>style/offline-simple.css</file>
+            <file>style/offline.css</file>
+        </files>
+    </filterSection>
+</QtHelpProject>

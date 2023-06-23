@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<!-- qtandroidextras-example-service-broadcastreceiver-samelib.qdoc -->
+  <title>Android Service with BroadcastReceiver - Same Lib File | Qt Android Extras 5.15.2</title>
+  <link rel="stylesheet" type="text/css" href="style/offline-simple.css" />
+  <script type="text/javascript">
+    document.getElementsByTagName("link").item(0).setAttribute("href", "style/offline.css");
+    // loading style sheet breaks anchors that were jumped to before
+    // so force jumping to anchor again
+    setTimeout(function() {
+        var anchor = location.hash;
+        // need to jump to different anchor first (e.g. none)
+        location.hash = "#";
+        setTimeout(function() {
+            location.hash = anchor;
+        }, 0);
+    }, 0);
+  </script>
+</head>
+<body>
+<div class="header" id="qtdocheader">
+    <div class="main">
+    <div class="main-rounded">
+        <div class="navigationbar">
+        <ul>
+<li>Qt 5.15</li>
+<li><a href="qtandroidextras-index.html">Qt Android Extras</a></li>
+<li>Android Service with BroadcastReceiver - Same Lib File</li>
+<li id="buildversion"><a href="qtandroidextras-index.html">Qt 5.15.2 Reference Documentation</a></li>
+    </ul>
+    </div>
+</div>
+<div class="content">
+<div class="line">
+<div class="content mainContent">
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#running-the-example">Running the Example</a></li>
+<li class="level1"><a href="#create-the-service">Create the Service</a></li>
+<li class="level1"><a href="#manage-the-androidmanifest-xml-file">Manage the AndroidManifest.xml File</a></li>
+<li class="level1"><a href="#start-the-service">Start the Service</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Android Service with BroadcastReceiver - Same Lib File</h1>
+<span class="subtitle"></span>
+<!-- $$$services/servicebroadcastsamelib-brief -->
+<p>Demonstrates how to run an Android service in a separate process, and how to communicate with Qt using a BroadcastReceiver.</p>
+<!-- @@@services/servicebroadcastsamelib -->
+<!-- $$$services/servicebroadcastsamelib-description -->
+<div class="descr"> <a name="details"></a>
+<p class="centerAlign"><img src="images/androidservices.png" alt="" /></p><p>This example demonstrates how to create and run an Android service in its own process using the same main <code>.so</code> lib file, and then exchange data between QML/C++ and the Java service using a <a href="https://developer.android.com/reference/android/content/BroadcastReceiver">BroadcastReceiver</a>.</p>
+<p>When clicking the <b>Send to Service</b> button, the name entered in the QML view, Qt, in this case, is sent to the Android service. Then, the service replies back with a message <code>Hello Qt</code> which is printed in the QML view.</p>
+<a name="running-the-example"></a>
+<h4 id="running-the-example">Running the Example</h4>
+<p>To run the example from Qt Creator, open the <b>Welcome</b> mode and select the example from <b>Examples</b>. For more information, visit Building and Running an Example.</p>
+<a name="create-the-service"></a>
+<h4 id="create-the-service">Create the Service</h4>
+<p>When running the app's process, you can extend either <code>QtService</code> or <code>Service</code>. Extending <code>QtService</code> allows Qt to load all the necessary libraries to load Qt components correctly and call native methods on Android. However, here the service is running in the same process, and with the BroadcastReceiver you don't need native calls to exchange messages with Qt, so extending either class works.</p>
+<p>Start by creating the Java service class. This is a normal Android <code>Service</code> that receives a name from QML and replies back with <code>Hello &lt;name&gt;</code>:</p>
+<pre class="cpp">
+ package org.qtproject.example.qtandroidservice;
+
+ import android.content.Context;
+ import android.content.Intent;
+ import android.util.Log;
+ import android.os.IBinder;
+ import org.qtproject.qt5.android.bindings.QtService;
+ import android.content.IntentFilter;
+
+ public class QtAndroidService extends QtService
+ {
+     private static final String TAG = &quot;QtAndroidService&quot;;
+
+     @Override
+     public void onCreate() {
+         super.onCreate();
+         Log.i(TAG, &quot;Creating Service&quot;);
+     }
+
+     @Override
+     public void onDestroy() {
+         super.onDestroy();
+         Log.i(TAG, &quot;Destroying Service&quot;);
+     }
+
+     @Override
+     public int onStartCommand(Intent intent, int flags, int startId) {
+         int ret = super.onStartCommand(intent, flags, startId);
+
+         String name = new String(intent.getByteArrayExtra(&quot;name&quot;));
+         Intent sendToUiIntent = new Intent();
+         sendToUiIntent.setAction(ActivityUtils.BROADCAST_NAME_ACTION);
+         sendToUiIntent.putExtra(&quot;name&quot;, name);
+         Log.i(TAG, &quot;Service sending broadcast&quot;);
+         sendBroadcast(sendToUiIntent);
+
+         return ret;
+     }
+
+     @Override
+     public IBinder onBind(Intent intent) {
+         return super.onBind(intent);
+     }
+ }
+</pre>
+<p>In the overwritten method <a href="https://developer.android.com/reference/android/app/Service#onStartCommand(android.content.Intent,%20int,%20int)">onStartCommand()</a>, the service receives a name from the calling intent, then sends a broadcast to the BroadcastReceiver, which in turn will call the native method <code>sendToQt(String message)</code>. For more information on managing native calls in Qt, see <a href="qtandroidextras-jnimessenger-example.html#calling-qml-c-functions-from-java-code">Calling QML/C++ Functions from Java Code</a>.</p>
+<a name="manage-the-androidmanifest-xml-file"></a>
+<h4 id="manage-the-androidmanifest-xml-file">Manage the AndroidManifest.xml File</h4>
+<p>To use the service, it must be declared in the <code>AndroidManifest.xml</code> file:</p>
+<pre class="cpp">
+ &lt;service android:process=&quot;:qt_service&quot; android:name=&quot;.QtAndroidService&quot;&gt;
+
+         &lt;!-- Application arguments --&gt;
+         &lt;meta-data android:name=&quot;android.app.arguments&quot; android:value=&quot;-service&quot;/&gt;
+         &lt;!-- Application arguments --&gt;
+
+         &lt;meta-data android:name=&quot;android.app.lib_name&quot; android:value=&quot;-- %%INSERT_APP_LIB_NAME%% --&quot;/&gt;
+         &lt;meta-data android:name=&quot;android.app.qt_sources_resource_id&quot; android:resource=&quot;@array/qt_sources&quot;/&gt;
+         &lt;meta-data android:name=&quot;android.app.repository&quot; android:value=&quot;default&quot;/&gt;
+         &lt;meta-data android:name=&quot;android.app.qt_libs_resource_id&quot; android:resource=&quot;@array/qt_libs&quot;/&gt;
+         &lt;meta-data android:name=&quot;android.app.bundled_libs_resource_id&quot; android:resource=&quot;@array/bundled_libs&quot;/&gt;
+         &lt;!-- Deploy Qt libs as part of package --&gt;
+         &lt;meta-data android:name=&quot;android.app.bundle_local_qt_libs&quot; android:value=&quot;-- %%BUNDLE_LOCAL_QT_LIBS%% --&quot;/&gt;
+
+         &lt;!-- Run with local libs --&gt;
+         &lt;meta-data android:name=&quot;android.app.use_local_qt_libs&quot; android:value=&quot;-- %%USE_LOCAL_QT_LIBS%% --&quot;/&gt;
+         &lt;meta-data android:name=&quot;android.app.libs_prefix&quot; android:value=&quot;/data/local/tmp/qt/&quot;/&gt;
+         &lt;meta-data android:name=&quot;android.app.load_local_libs_resource_id&quot; android:resource=&quot;@array/load_local_libs&quot;/&gt;
+         &lt;meta-data android:name=&quot;android.app.load_local_jars&quot; android:value=&quot;-- %%INSERT_LOCAL_JARS%% --&quot;/&gt;
+         &lt;meta-data android:name=&quot;android.app.static_init_classes&quot; android:value=&quot;-- %%INSERT_INIT_CLASSES%% --&quot;/&gt;
+         &lt;!-- Run with local libs --&gt;
+
+         &lt;!-- Background running --&gt;
+         &lt;meta-data android:name=&quot;android.app.background_running&quot; android:value=&quot;true&quot;/&gt;
+         &lt;!-- Background running --&gt;
+     &lt;/service&gt;
+</pre>
+<a name="start-the-service"></a>
+<h4 id="start-the-service">Start the Service</h4>
+<p>Since the service is run using the same <code>.so</code> lib file with different arguments for the service, you must handle the arguments. For the main application use:</p>
+<pre class="cpp">
+     <span class="keyword">if</span> (argc <span class="operator">&lt;</span><span class="operator">=</span> <span class="number">1</span>) {
+</pre>
+<p>Then take the following steps:</p>
+<ol class="1" type="1"><li>Register the native method</li>
+<li>Create the BroadcastReceiver in a custom Java class:<pre class="cpp">
+ package org.qtproject.example.qtandroidservice;
+
+ import android.content.Context;
+ import android.content.Intent;
+ import android.util.Log;
+ import android.content.BroadcastReceiver;
+ import android.content.IntentFilter;
+
+ public class ActivityUtils {
+
+     private static native void sendToQt(String message);
+
+     private static final String TAG = &quot;ActivityUtils&quot;;
+     public static final String BROADCAST_NAME_ACTION = &quot;org.qtproject.example.qtandroidservice.broadcast.name&quot;;
+
+     public void registerServiceBroadcastReceiver(Context context) {
+         IntentFilter intentFilter = new IntentFilter();
+         intentFilter.addAction(BROADCAST_NAME_ACTION);
+         context.registerReceiver(serviceMessageReceiver, intentFilter);
+         Log.i(TAG, &quot;Registered broadcast receiver&quot;);
+     }
+
+     private BroadcastReceiver serviceMessageReceiver = new BroadcastReceiver() {
+         @Override
+         public void onReceive(Context context, Intent intent) {
+             Log.i(TAG, &quot;In OnReceive broadcast receiver&quot;);
+             if (BROADCAST_NAME_ACTION.equals(intent.getAction())) {
+                 String name = intent.getStringExtra(&quot;name&quot;);
+                 Log.i(TAG, &quot;Service received name: &quot; + name);
+                 String message = &quot;Hello &quot; + name;
+                 sendToQt(message);
+                 Log.i(TAG, &quot;Service sent back message: &quot; + message);
+             }
+         }
+     };
+ }
+</pre>
+</li>
+<li>Register the BroadcastReceiver:<pre class="cpp">
+ <span class="type">void</span> <span class="type">QtAndroidService</span><span class="operator">::</span>registerBroadcastReceiver()
+ {
+     <span class="type"><a href="qandroidjnienvironment.html">QAndroidJniEnvironment</a></span> env;
+     jclass javaClass <span class="operator">=</span> env<span class="operator">.</span>findClass(<span class="string">&quot;org/qtproject/example/qtandroidservice/ActivityUtils&quot;</span>);
+     <span class="type"><a href="qandroidjniobject.html">QAndroidJniObject</a></span> classObject(javaClass);
+
+     classObject<span class="operator">.</span>callMethod<span class="operator">&lt;</span><span class="type">void</span><span class="operator">&gt;</span>(<span class="string">&quot;registerServiceBroadcastReceiver&quot;</span><span class="operator">,</span>
+                                  <span class="string">&quot;(Landroid/content/Context;)V&quot;</span><span class="operator">,</span>
+                                  <span class="type"><a href="qtandroid.html">QtAndroid</a></span><span class="operator">::</span>androidContext()<span class="operator">.</span>object());
+ }
+</pre>
+</li>
+<li>Call the <a href="https://developer.android.com/reference/android/content/Context#startService(android.content.Intent)">startService()</a> method, as follows:<pre class="cpp">
+ <span class="type">void</span> <span class="type">QtAndroidService</span><span class="operator">::</span>sendToService(<span class="keyword">const</span> <span class="type"><a href="../qtcore/qstring.html">QString</a></span> <span class="operator">&amp;</span>name)
+ {
+     <span class="type"><a href="qandroidintent.html">QAndroidIntent</a></span> serviceIntent(<span class="type"><a href="qtandroid.html">QtAndroid</a></span><span class="operator">::</span>androidActivity()<span class="operator">.</span>object()<span class="operator">,</span>
+                                 <span class="string">&quot;org/qtproject/example/qtandroidservice/QtAndroidService&quot;</span>);
+     serviceIntent<span class="operator">.</span>putExtra(<span class="string">&quot;name&quot;</span><span class="operator">,</span> name<span class="operator">.</span>toUtf8());
+     <span class="type"><a href="qandroidjniobject.html">QAndroidJniObject</a></span> result <span class="operator">=</span> <span class="type"><a href="qtandroid.html">QtAndroid</a></span><span class="operator">::</span>androidActivity()<span class="operator">.</span>callObjectMethod(
+                 <span class="string">&quot;startService&quot;</span><span class="operator">,</span>
+                 <span class="string">&quot;(Landroid/content/Intent;)Landroid/content/ComponentName;&quot;</span><span class="operator">,</span>
+                 serviceIntent<span class="operator">.</span>handle()<span class="operator">.</span>object());
+ }
+</pre>
+<p>This function is used to start the Service. If the service is already running, it will only send the names without starting a new service instance.</p>
+</li>
+<li>Then, you have to add the necessary Connections, as described in <a href="qtandroidextras-jnimessenger-example.html">Qt JNI Messenger Example</a>.</li>
+</ol>
+<p>Handle the service argument as follows:</p>
+<pre class="cpp">
+     } <span class="keyword">else</span> <span class="keyword">if</span> (argc <span class="operator">&gt;</span> <span class="number">1</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> strcmp(argv<span class="operator">[</span><span class="number">1</span><span class="operator">]</span><span class="operator">,</span> <span class="string">&quot;-service&quot;</span>) <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>) {
+         <a href="../qtcore/qtglobal.html#qWarning">qWarning</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Service starting with BroadcastReceiver from same .so file&quot;</span>;
+         <span class="type"><a href="qandroidservice.html">QAndroidService</a></span> app(argc<span class="operator">,</span> argv);
+
+         <span class="keyword">return</span> app<span class="operator">.</span>exec();
+</pre>
+<p><a href="https://code.qt.io/cgit/qt/qtandroidextras.git/tree/examples/androidextras/services/servicebroadcastsamelib?h=5.15">Example project @ code.qt.io</a></p>
+</div>
+<p><b>See also </b><a href="qtandroidextras-services-servicebroadcast-example.html">Android Service with BroadcastReceiver</a>, Android Services, Qt for Android, and <a href="qtandroidextras-index.html">Qt Android Extras</a>.</p>
+<!-- @@@services/servicebroadcastsamelib -->
+        </div>
+       </div>
+   </div>
+   </div>
+</div>
+<div class="footer">
+   <p>
+   <acronym title="Copyright">&copy;</acronym> 2020 The Qt Company Ltd.
+   Documentation contributions included herein are the copyrights of
+   their respective owners.<br/>    The documentation provided herein is licensed under the terms of the    <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation    License version 1.3</a> as published by the Free Software Foundation.<br/>    Qt and respective logos are trademarks of The Qt Company Ltd.     in Finland and/or other countries worldwide. All other trademarks are property
+   of their respective owners. </p>
+</div>
+</body>
+</html>
